@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atelier Dubiński — Portret kobiecego światła</title>
+  <meta name="description" content="Prywatna pracownia portretu artystycznego kobiet. Łączymy fotografię ze stolarską tradycją Manufaktury Dubiński (od 1971 r.). Dwa rzemiosła: drewno i światło.">
+  
+  <meta property="og:title" content="Atelier Dubiński — Portret kobiecego światła">
+  <meta property="og:description" content="Pracuję w dwóch materiałach: drewno i światło. Dzieło sztuki, którego jesteś częścią.">
+  <meta property="og:image" content="/images/hero_portrait_01.jpg">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/src/styles/index.css">
+</head>
+<body>
+
+  <!-- Custom Inertia Cursor -->
+  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+  <div class="cursor-circle" id="cursorCircle" aria-hidden="true"></div>
+
+  <!-- Noise Film Grain -->
+  <canvas id="grainCanvas" class="grain-overlay" aria-hidden="true"></canvas>
+
+  <!-- Global Header -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner">
+      <a href="#stage-hero" class="brand-logo" aria-label="Atelier Dubiński">
+        <span class="brand-ad">AD</span>
+        <span class="brand-name">Atelier Dubiński</span>
+      </a>
+
+      <!-- Center Narrative Tracker -->
+      <div class="narrative-tracker" id="narrativeTracker">
+        <span class="tracker-num" id="currentTrackNum">01</span>
+        <span class="tracker-sep">/</span>
+        <span class="tracker-total">10</span>
+        <span class="tracker-label" id="currentTrackLabel">ŚWIATŁO</span>
+      </div>
+
+      <!-- Nav Links -->
+      <nav class="header-nav">
+        <a href="#stage-experience" class="nav-link">DOŚWIADCZENIE</a>
+        <a href="#stage-material" class="nav-link">MATERIAŁ</a>
+        <a href="#stage-craft" class="nav-link">DWA RZEMIOSŁA</a>
+        <a href="#stage-assembly" class="nav-link">MONTAŻ</a>
+        <a href="#stage-portfolio" class="nav-link">PORTFOLIO</a>
+        <a href="#stage-process" class="nav-link">PROCES</a>
+        <a href="#stage-atelier" class="nav-link">ATELIER</a>
+        <a href="#stage-contact" class="nav-link">KONTAKT</a>
+      </nav>
+
+      <div class="header-controls">
+        <button type="button" class="btn-sound" id="btnSound" aria-label="Dźwięk pracowni">
+          <span class="sound-wave">
+            <i></i><i></i><i></i><i></i>
+          </span>
+          <span class="sound-label" id="soundLabel">DŹWIĘK</span>
+        </button>
+
+        <a href="#stage-contact" class="btn-inquire">
+          ROZMOWA
+        </a>
+
+        <button type="button" class="mobile-toggle" id="mobileMenuToggle" aria-label="Menu">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+    <div class="mobile-drawer-inner">
+      <nav class="mobile-nav">
+        <a href="#stage-hero" class="mobile-link" data-close-drawer>01. Światło &bull; Portret</a>
+        <a href="#stage-experience" class="mobile-link" data-close-drawer>02. O doświadczeniu</a>
+        <a href="#stage-material" class="mobile-link" data-close-drawer>03. Materiał &bull; Papier bawełniany</a>
+        <a href="#stage-wood-trans" class="mobile-link" data-close-drawer>04. Przejście &bull; Drewno dębowe</a>
+        <a href="#stage-craft" class="mobile-link" data-close-drawer>05. Dwa rzemiosła &bull; Jedno dzieło</a>
+        <a href="#stage-assembly" class="mobile-link" data-close-drawer>06. Montaż dzieła 3D</a>
+        <a href="#stage-scale" class="mobile-link" data-close-drawer>07. Skala w architekturze</a>
+        <a href="#stage-portfolio" class="mobile-link" data-close-drawer>08. Portfolio (Portret &bull; Boudoir &bull; Fine Art)</a>
+        <a href="#stage-process" class="mobile-link" data-close-drawer>09. Proces w atelier</a>
+        <a href="#stage-atelier" class="mobile-link" data-close-drawer>10. Pracownia &bull; Opinie &bull; Kontakt</a>
+      </nav>
+      <a href="#stage-contact" class="btn-primary-atelier w-full" data-close-drawer>
+        ROZPOCZNIJ ROZMOWĘ →
+      </a>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- MASTER SCROLLYTELLING CONTAINER -->
+  <!-- ========================================================================= -->
+  <main class="scrollytelling-main" id="scrollyMain">
+
+    <!-- ----------------------------------------------------------------------- -->
+    <!-- SCENE 01: OPENING HERO (DARKNESS -> LIGHT -> WOMAN -> PORTRAIT -> MATERIAL) -->
+    <!-- ----------------------------------------------------------------------- -->
+    <section class="story-stage" id="stage-hero" data-track-num="01" data-track-label="ŚWIATŁO">
+      <div class="stage-sticky-screen">
+        
+        <!-- Deep Portrait Canvas -->
+        <div class="hero-canvas-frame">
+          <img src="/images/hero_portrait_01.jpg" alt="Portret kobiecego światła — Atelier Dubiński" class="hero-canvas-img" id="heroPortraitImg">
+          <div class="hero-chiaroscuro-light" id="heroLightBeam"></div>
+          <div class="hero-macro-paper-grain" id="heroMacroGrain"></div>
+        </div>
+
+        <!-- Sequential Floating Narrative Typography -->
+        <div class="hero-narrative-overlay container-luxury">
+          
+          <!-- State 1: ŚWIATŁO -->
+          <div class="narrative-step active" id="heroStep1">
+            <span class="narrative-kicker">ATELIER DUBIŃSKI</span>
+            <h1 class="monumental-serif-word">ŚWIATŁO.</h1>
+            <p class="narrative-caption">Każdy portret zaczyna się w ciemności. Zanim pojawi się kadr, przestrzeń wypełnia światło.</p>
+          </div>
+
+          <!-- State 2: PORTRET -->
+          <div class="narrative-step" id="heroStep2">
+            <span class="narrative-kicker">RADOSŁAW DUBIŃSKI</span>
+            <h2 class="monumental-serif-word">PORTRET.</h2>
+            <p class="narrative-caption">Pracuję z kobietami, które przychodzą nie dla zdjęć, tylko dla momentu, w którym zobaczą siebie w obiektywie i pomyślą: <em>to ja, i jest mi z tym dobrze</em>.</p>
+          </div>
+
+          <!-- State 3: MATERIAŁ -->
+          <div class="narrative-step" id="heroStep3">
+            <span class="narrative-kicker">ARCHIWALNA MATERIA</span>
+            <h2 class="monumental-serif-word text-gold">MATERIAŁ.</h2>
+            <p class="narrative-caption">To nie jest płaski obraz na szkle telefonu. Zostaje przeniesiony na fizyczny, bawełniany nośnik i zintegrowany z litym drewnem.</p>
+          </div>
+
+        </div>
+
+        <div class="scroll-prompt-indicator">
+          <span class="prompt-line"></span>
+          <span class="prompt-text">PRZEWIŃ, ABY ODKRYĆ POWSTANIE OBIEKTU</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ----------------------------------------------------------------------- -->
+    <!-- SCENE 02: O DOŚWIADCZENIU (RADOSŁAW DUBIŃSKI & DWA MATERIAŁY) -->
+    <!-- ----------------------------------------------------------------------- -->
+    <section class="story-stage" id="stage-experience" data-track-num="02" data-track-label="DOŚWIADCZENIE">
+      <div class="stage-sticky-screen bg-charcoal">
+        <div class="container-luxury experience-screen-layout">
+          
+          <div class="exp-left-col">
+            <span class="section-tag">O DOŚWIADCZENIU</span>
+            <h2 class="exp-title">
+              Sesja, po której<br>
+              <span class="text-gold">patrzysz na siebie inaczej.</span>
+            </h2>
+            <div class="gold-accent-line"></div>
+            
+            <div class="exp-metrics-row">
+              <div class="metric-box">
+                <strong>20 LAT</strong>
+                <span>FOTOGRAFII FINE ART</span>
+              </div>
+              <div class="metric-box">
+                <strong>4–6</strong>
+                <span>KLIENTEK MIESIĘCZNIE</span>
+              </div>
+              <div class="metric-box">
+                <strong>OD 1971</strong>
+                <span>TRADYCJA DREWNA</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="exp-right-col">
+            <div class="exp-manifesto-card">
+              <blockquote class="manifesto-text">
+                „Fotografuję od dwudziestu lat. Specjalizuję się w portrecie kobiecym, boudoir i fine art nude. Prowadzę również Manufakturę Dubiński — pracownię drzwi drewnianych na zamówienie. <strong>Pracuję w dwóch materiałach: drewno i światło.</strong>”
+              </blockquote>
+              <p class="manifesto-body">
+                Atelier znajduje się nad Wisłą, czterdzieści minut od Trójmiasta. Sesje rezerwuję na sześć do dziesięciu tygodni naprzód. Nie ma tu pośpiechu, katalogu póz ani sztucznych szablonów — jest czas, rozmowa i skupienie.
+              </p>
+              <div class="manifesto-author-sign">
+                <span class="sign-ad">AD</span>
+                <div>
+                  <strong>Radosław Dubiński</strong>
+                  <small>Fotograf &bull; Rzemieślnik &bull; Atelier nad Wisłą</small>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ----------------------------------------------------------------------- -->
+    <!-- SCENE 03: MATERIAŁ — PAPIER BAWEŁNIANY HAHNEMÜHLE (MAKRO DETAIL) -->
+    <!-- ----------------------------------------------------------------------- -->
+    <section class="story-stage" id="stage-material" data-track-num="03" data-track-label="MATERIAŁ">
+      <div class="stage-sticky-screen">
+        <div class="material-bg-wrap">
+          <img src="/images/paper_fibers.jpg" alt="Faktura papieru bawełnianego 310g" class="material-bg-image" id="materialMacroImg">
+          <div class="material-bg-vignette"></div>
+        </div>
+
+        <div class="container-luxury material-screen-grid">
+          
+          <div class="mat-left">
+            <span class="section-tag">ROZDZIAŁ I — MATERIA</span>
+            <div class="mat-words-stack">
+              <h2 class="mat-step-word" id="matWord1">PAPIER.</h2>
+              <h2 class="mat-step-word" id="matWord2">FAKTURA.</h2>
+              <h2 class="mat-step-word text-gold" id="matWord3">MATERIAŁ.</h2>
+            </div>
+            <blockquote class="mat-quote">
+              „To nie jest płaski obraz z cyfrowego wyświetlacza. To namacalne, bawełniane włókna zatrzymujące pigment na stulecia.”
+            </blockquote>
+          </div>
+
+          <div class="mat-right">
+            <div class="mat-spec-card">
+              <div class="spec-card-head">
+                <span class="spec-card-tag">CERTYFIKACJA NOŚNIKA</span>
+                <span class="spec-card-ad">AD</span>
+              </div>
+              <ul class="spec-list-items">
+                <li>
+                  <span class="spec-kicker">NOŚNIK</span>
+                  <strong>Hahnemühle 310 g/m² 100% Cotton Rag</strong>
+                  <small>Czyste włókna bawełniane bez chemicznych wybielaczy.</small>
+                </li>
+                <li>
+                  <span class="spec-kicker">STRUKTURA</span>
+                  <strong>Aksamitna faktura barytowa</strong>
+                  <small>Głęboka, trójwymiarowa czerń i plastyczność półtonów.</small>
+                </li>
+                <li>
+                  <span class="spec-kicker">TRWAŁOŚĆ</span>
+                  <strong>Certyfikat archiwalny ISO 9706 (>150 lat)</strong>
+                  <small>Niezmienna jakość dzieła przez pokolenia.</small>
+                </li>
+                <li>
+                  <span class="spec-kicker">PIGMENT</span>
+                  <strong>Mineralny tusz 12-kolorowy UltraChrome Pro</strong>
+                  <small>Mikroskopijna precyzja kropli pigmentu węglowego.</small>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ----------------------------------------------------------------------- -->
+    <!-- SCENE 04: PRZEJŚCIE MATERII — PAPIER DO DREWNA (DREWNO.) -->
+    <!-- ----------------------------------------------------------------------- -->
+    <section class="story-stage" id="stage-wood-trans" data-track-num="04" data-track-label="DREWNO">
+      <div class="stage-sticky-screen">
+        
+        <div class="wood-transition-canvas">
+          <div class="wood-layer-paper" id="transLayerPaper" style="background-image: url('/images/paper_fibers.jpg');"></div>
+          <div class="wood-layer-timber" id="transLayerTimber" style="background-image: url('/images/wood_grain.jpg');"></div>
+          <div class="wood-trans-vignette"></div>
+        </div>
+
+        <div class="container-luxury wood-trans-content text-center">
+          <span class="section-tag">PRZEJŚCIE MATERIAŁU</span>
+          <h2 class="wood-trans-headline">DREWNO.</h2>
+          <p class="wood-trans-lead">Gdy struktura papieru spotyka usłojenie szlachetnego dębu.</p>
+          <p class="wood-trans-sub">Fotografia i drewno nie są osobnymi elementami. W świecie Atelier Dubiński stanowią jeden nierozerwalny organizm artystyczny.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ----------------------------------------------------------------------- -->
+    <!-- SCENE 05: DWA RZEMIOSŁA (MANUFAKTURA DUBIŃSKI & ŚWIATŁO) -->
+    <!-- ----------------------------------------------------------------------- -->
+    <section class="story-stage" id="stage-craft" data-track-num="05" data-track-label="RZEMIOSŁO">
+      <div class="stage-sticky-screen bg-charcoal">
+        <div class="container-luxury craft-screen-layout">
+          
+          <div class="craft-header-row text-center">
+            <span class="section-tag">MANUFAKTURA DUBIŃSKI &bull; OD 1971 ROKU</span>
+            <h2 class="craft-headline-big">
+              DWA RZEMIOSŁA. <span class="text-gold">JEDNO DZIEŁO.</span>
+            </h2>
+            <p class="craft-sub-p">Fotograf rzeźbi światłem. Rzemieślnik kształtuje lity dąb.</p>
+          </div>
+
+          <div class="craft-split-panels">
+            
+            <!-- Left Panel: Woodworking Plane -->
+            <div class="craft-side-card">
+              <div class="side-card-media">
+                <img src="/images/craftsman_plane.jpg" alt="Mistrz stolarski — struganie dębu" loading="lazy">
+                <span class="card-loc-badge">MANUFAKTURA STOLARSKA</span>
+              </div>
+              <div class="side-card-text">
+                <h3>Rzemieślnik pracuje z drewnem</h3>
+                <p>Trzy pokolenia doświadczenia Manufaktury Dubiński. Ręczne dłuta, struganie litego dębu, olejowanie naturalnymi woskami twardymi.</p>
+              </div>
+            </div>
+
+            <!-- Right Panel: Walnut Spline Frame Detail -->
+            <div class="craft-side-card">
+              <div class="side-card-media">
+                <img src="/images/frame_spline.jpg" alt="Narożnik ramy z piórem orzechowym" loading="lazy">
+                <span class="card-loc-badge">PRECYZJA POŁĄCZEŃ</span>
+              </div>
+              <div class="side-card-text">
+                <h3>Orzechowe pióro w narożniku</h3>
+                <p>Każdy narożnik ramy łączony jest na pióro orzechowe — detal widoczny z bliska, tworzący trwałość mechaniczną na pokolenia.</p>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="craft-heritage-pills-row">
+            <div class="craft-pill">
+              <strong>1971</strong>
+              <span>TRADYCJA RODZINNA</span>
+            </div>
+            <div class="craft-pill">
+              <strong>100%</strong>
+              <span>LITY DĄB & ORZECH</span>
+            </div>
+            <div class="craft-pill">
+              <strong>1 / 1</strong>
+              <span>UNIKATOWE DZIEŁO</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ----------------------------------------------------------------------- -->
+    <!-- SCENE 06: MONTAŻ DZIEŁA 3D (EXPLODED VIEW OF THE ARTWORK) -->
+    <!-- ----------------------------------------------------------------------- -->
+    <section class="story-stage" id="stage-assembly" data-track-num="06" data-track-label="MONTAŻ">
+      <div class="stage-sticky-screen">
+        
+        <div class="assembly-top-title container-luxury text-center">
+          <span class="section-tag">ANATOMIA OBIEKTU</span>
+          <h2 class="assembly-title-text">Montaż Dzieła</h2>
+          <p class="assembly-sub-text">Eksplozja warstw tworzących skończony obiekt kolekcjonerski.</p>
+        </div>
+
+        <div class="container-luxury assembly-3d-wrapper">
+          
+          <!-- 3D Exploded Card Stage -->
+          <div class="exploded-card-viewport" id="explodedViewport">
+            <div class="exploded-card-deck" id="explodedDeck">
+              
+              <!-- Layer 1: Frame -->
+              <div class="exploded-layer layer-frame-3d" id="exLayerFrame">
+                <div class="frame-wood-mockup">
+                  <div class="corner-spline c-tl"></div>
+                  <div class="corner-spline c-tr"></div>
+                  <div class="corner-spline c-bl"></div>
+                  <div class="corner-spline c-br"></div>
+                </div>
+                <div class="layer-annotation annot-frame">
+                  <span class="annot-num">01</span>
+                  <strong>LITA RAMA DĘBOWA</strong>
+                  <small>Solid European Oak &bull; Pióro orzechowe</small>
+                </div>
+              </div>
+
+              <!-- Layer 2: Museum Glass -->
+              <div class="exploded-layer layer-glass-3d" id="exLayerGlass">
+                <div class="glass-reflection-glare"></div>
+                <div class="layer-annotation annot-glass">
+                  <span class="annot-num">02</span>
+                  <strong>SZKŁO MUZEALNE UV 99%</strong>
+                  <small>Ultra-Clear &bull; Redukcja odblasków do 0.5%</small>
+                </div>
+              </div>
+
+              <!-- Layer 3: Passe-Partout -->
+              <div class="exploded-layer layer-mat-3d" id="exLayerMat">
+                <div class="mat-inner-window"></div>
+                <div class="layer-annotation annot-mat">
+                  <span class="annot-num">03</span>
+                  <strong>PASSE-PARTOUT BEZKWASOWE</strong>
+                  <small>8-Ply Bawełna &bull; Skos 45°</small>
+                </div>
+              </div>
+
+              <!-- Layer 4: Fine Art Print -->
+              <div class="exploded-layer layer-print-3d" id="exLayerPrint">
+                <img src="/images/hero_portrait_01.jpg" alt="Druk fine-art portretu" class="print-matte-img">
+                <div class="print-seal-mark">AD &bull; 1/1</div>
+                <div class="layer-annotation annot-print">
+                  <span class="annot-num">04</span>
+                  <strong>DRUK PIGMENTOWY 310g</strong>
+                  <small>Hahnemühle Cotton Rag &bull; Sygnowany</small>
+                </div>
+              </div>
+
+              <!-- Layer 5: Timber Backing & Seal -->
+              <div class="exploded-layer layer-back-3d" id="exLayerBack">
+                <div class="timber-backing-surface">
+                  <div class="backing-plaque">
+                    <strong>ATELIER DUBIŃSKI</strong>
+                    <span>CERTIFIED ARCHIVAL OBJECT</span>
+                  </div>
+                </div>
+                <div class="layer-annotation annot-back">
+                  <span class="annot-num">05</span>
+                  <strong>PLECY Z LITEGO DREWNA</strong>
+                  <small>Certyfikowana pieczęć lakowa Atelier</small>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ----------------------------------------------------------------------- -->
+    <!-- SCENE 07: SKALA W ARCHITEKTURZE (PORTRET STAJE SIĘ OBIEKTEM) -->
+    <!-- ----------------------------------------------------------------------- -->
+    <section class="story-stage" id="stage-scale" data-track-num="07" data-track-label="SKALA">
+      <div class="stage-sticky-screen">
+        
+        <div class="scale-interior-canvas">
+          <img src="/images/interior_scale.jpg" alt="Portret Atelier Dubiński w przestrzeni galerii" class="scale-interior-photo" id="scaleInteriorPhoto">
+          <div class="scale-interior-mask"></div>
+        </div>
+
+        <div class="container-luxury scale-statement-card">
+          <span class="section-tag">ROZDZIAŁ IV — SKALA I PRZESTRZEŃ</span>
+          <h2 class="scale-main-title">PORTRET STAJE SIĘ OBIEKTEM.</h2>
+          <p class="scale-lead-quote">To nie plik cyfrowy do zamknięcia w telefonie. To dzieło stworzone, by zająć miejsce w architekturze Twojego domu.</p>
+          <div class="gold-accent-line"></div>
+          <p class="scale-sub-prose">Od intymnego mikrodetalu skóry i faktury papieru, po monumentalną obecność na ścianie galerii lub prywatnej rezydencji.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ----------------------------------------------------------------------- -->
+    <!-- SCENE 08: PORTFOLIO (PORTRET · BOUDOIR · FINE ART) -->
+    <!-- ----------------------------------------------------------------------- -->
+    <section class="story-stage-auto" id="stage-portfolio" data-track-num="08" data-track-label="PORTFOLIO">
+      <div class="container-luxury portfolio-deck-wrap">
+        
+        <div class="portfolio-head-bar">
+          <div>
+            <span class="section-tag">KOLEKCJA DZIEŁ</span>
+            <h2 class="portfolio-title-text">Trzy Wymiary Światła</h2>
+          </div>
+          
+          <div class="portfolio-category-nav" id="portfolioTabs">
+            <button type="button" class="port-tab-btn active" data-cat="portret">PORTRET</button>
+            <button type="button" class="port-tab-btn" data-cat="boudoir">BOUDOIR</button>
+            <button type="button" class="port-tab-btn" data-cat="fineart">FINE ART</button>
+          </div>
+        </div>
+
+        <!-- PORTRET VIEW -->
+        <div class="portfolio-view-panel active" id="view-portret">
+          <div class="view-intro-bar">
+            <h3>Twoje światło, twoja twarz, twoja historia.</h3>
+            <p>Kadr od pasa w górę. Czasem tylko twarz. Zawsze ty — w stroju, który wybrałaś, w świetle, które rozumie.</p>
+          </div>
+
+          <div class="works-cards-grid">
+            <div class="work-show-card" data-img="/images/hero_portrait_01.jpg" data-title="Portret 01" data-cat="Portret Fine-Art" data-spec="120 × 90 cm &bull; Druk bawełniany &bull; Dąb wędzony">
+              <div class="card-inner-frame">
+                <img src="/images/hero_portrait_01.jpg" alt="Portret 01" loading="lazy">
+              </div>
+              <div class="card-bottom-info">
+                <strong>Portret 01</strong>
+                <span>120 × 90 cm &bull; Unikat 1/1</span>
+              </div>
+            </div>
+
+            <div class="work-show-card" data-img="/images/portrait_staircase.jpg" data-title="Portret 02" data-cat="Portret Fine-Art" data-spec="140 × 95 cm &bull; Baryta 315g &bull; Lity dąb naturalny">
+              <div class="card-inner-frame">
+                <img src="/images/portrait_staircase.jpg" alt="Portret 02" loading="lazy">
+              </div>
+              <div class="card-bottom-info">
+                <strong>Portret 02</strong>
+                <span>140 × 95 cm &bull; Unikat 1/1</span>
+              </div>
+            </div>
+
+            <div class="work-show-card" data-img="/images/portrait_colonnade.jpg" data-title="Portret 03" data-cat="Portret Fine-Art" data-spec="160 × 120 cm &bull; Cotton Rag &bull; Dąb czerniony">
+              <div class="card-inner-frame">
+                <img src="/images/portrait_colonnade.jpg" alt="Portret 03" loading="lazy">
+              </div>
+              <div class="card-bottom-info">
+                <strong>Portret 03</strong>
+                <span>160 × 120 cm &bull; Unikat 1/1</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BOUDOIR VIEW -->
+        <div class="portfolio-view-panel" id="view-boudoir">
+          <div class="view-intro-bar">
+            <h3>Bielizna jako pretekst. Tematem jesteś ty.</h3>
+            <p>Sesje w studio, w bieliźnie którą wybrałaś, w klimacie zbudowanym dla ciebie. Bez nagości, jeśli nie chcesz. Z nagością, jeśli czujesz, że to twoja historia.</p>
+          </div>
+
+          <div class="works-cards-grid">
+            <div class="work-show-card" data-img="/images/portrait_stone_steps.jpg" data-title="Boudoir 01" data-cat="Boudoir Study" data-spec="150 × 105 cm &bull; Passe-Partout 8-ply &bull; Dąb manufaktury">
+              <div class="card-inner-frame">
+                <img src="/images/portrait_stone_steps.jpg" alt="Boudoir 01" loading="lazy">
+              </div>
+              <div class="card-bottom-info">
+                <strong>Boudoir 01</strong>
+                <span>150 × 105 cm &bull; Unikat 1/1</span>
+              </div>
+            </div>
+
+            <div class="work-show-card" data-img="/images/intimate_light.jpg" data-title="Boudoir 02" data-cat="Boudoir Study" data-spec="130 × 90 cm &bull; Światłocień i jedwab &bull; Dąb naturalny">
+              <div class="card-inner-frame">
+                <img src="/images/intimate_light.jpg" alt="Boudoir 02" loading="lazy">
+              </div>
+              <div class="card-bottom-info">
+                <strong>Boudoir 02</strong>
+                <span>130 × 90 cm &bull; Unikat 1/1</span>
+              </div>
+            </div>
+
+            <div class="work-show-card" data-img="/images/portrait_sculpture_duo.jpg" data-title="Boudoir 03" data-cat="Boudoir Study" data-spec="150 × 110 cm &bull; Orzech europejski &bull; Baryta">
+              <div class="card-inner-frame">
+                <img src="/images/portrait_sculpture_duo.jpg" alt="Boudoir 03" loading="lazy">
+              </div>
+              <div class="card-bottom-info">
+                <strong>Boudoir 03</strong>
+                <span>150 × 110 cm &bull; Unikat 1/1</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FINE ART VIEW -->
+        <div class="portfolio-view-panel" id="view-fineart">
+          <div class="view-intro-bar">
+            <h3>Cisza, skóra, światło. Bez kostiumów.</h3>
+            <p>Akt artystyczny. Cztery, sześć, najwyżej osiem zdjęć rocznie, które uznaję za skończone. Te zdjęcia są w druku, w albumach, czasem na wystawach. Nie na Instagramie.</p>
+          </div>
+
+          <div class="works-cards-grid">
+            <div class="work-show-card" data-img="/images/interior_scale.jpg" data-title="Fine Art 01" data-cat="Fine Art Nude" data-spec="160 × 120 cm &bull; Kolekcja autorska &bull; Lity dąb">
+              <div class="card-inner-frame">
+                <img src="/images/interior_scale.jpg" alt="Fine Art 01" loading="lazy">
+              </div>
+              <div class="card-bottom-info">
+                <strong>Fine Art 01</strong>
+                <span>Kolekcja za zaproszeniem</span>
+              </div>
+            </div>
+
+            <div class="work-show-card" data-img="/images/portrait_sculpture_duo.jpg" data-title="Fine Art 02" data-cat="Fine Art Nude" data-spec="150 × 110 cm &bull; Monochromia &bull; Orzech">
+              <div class="card-inner-frame">
+                <img src="/images/portrait_sculpture_duo.jpg" alt="Fine Art 02" loading="lazy">
+              </div>
+              <div class="card-bottom-info">
+                <strong>Fine Art 02</strong>
+                <span>Dzieło unikatowe 1/1</span>
+              </div>
+            </div>
+
+            <div class="work-show-card" data-img="/images/hero_portrait_01.jpg" data-title="Fine Art 03" data-cat="Fine Art Nude" data-spec="120 × 90 cm &bull; Pigment mineralny &bull; Dąb wędzony">
+              <div class="card-inner-frame">
+                <img src="/images/hero_portrait_01.jpg" alt="Fine Art 03" loading="lazy">
+              </div>
+              <div class="card-bottom-info">
+                <strong>Fine Art 03</strong>
+                <span>Dzieło unikatowe 1/1</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ----------------------------------------------------------------------- -->
+    <!-- SCENE 09: PROCES — JAK WYGLĄDA DZIEŃ W ATELIER -->
+    <!-- ----------------------------------------------------------------------- -->
+    <section class="story-stage-auto bg-charcoal" id="stage-process" data-track-num="09" data-track-label="PROCES">
+      <div class="container-luxury process-deck-wrap">
+        
+        <div class="process-headline-center text-center">
+          <span class="section-tag">ZAMÓWIENIE DZIEŁA</span>
+          <h2 class="process-main-title">Jak wygląda dzień w atelier.</h2>
+          <p class="process-subtitle">Cztery etapy, sześć do dziesięciu tygodni od pierwszego maila do gotowych zdjęć.</p>
+        </div>
+
+        <div class="process-cards-deck">
+          
+          <!-- 01 Rozmowa -->
+          <div class="process-deck-item">
+            <span class="deck-item-num">01</span>
+            <span class="deck-item-phase">ETAP WSTĘPNY</span>
+            <h3 class="deck-item-title">Rozmowa</h3>
+            <p class="deck-item-desc">
+              Trzydzieści minut, na żywo w atelier albo przez telefon. Pytam, kim chciałabyś być w tym kadrze i czego potrzebujesz, żeby się otworzyć. Bez prezentacji pakietów, bez katalogu póz.
+            </p>
+          </div>
+
+          <!-- 02 Styling -->
+          <div class="process-deck-item">
+            <span class="deck-item-num">02</span>
+            <span class="deck-item-phase">PRZYGOTOWANIE</span>
+            <h3 class="deck-item-title">Styling i przygotowanie</h3>
+            <p class="deck-item-desc">
+              Po rozmowie ustalamy stylizację — bielizna, ubrania, makijaż. Pracuję z makijażystkami specjalizującymi się w sesjach kobiecych — naturalny, świetlisty, niemagazynowy. Wybór ubrań przygotowujemy razem.
+            </p>
+          </div>
+
+          <!-- 03 Sesja -->
+          <div class="process-deck-item">
+            <span class="deck-item-num">03</span>
+            <span class="deck-item-phase">DZIEŃ W ATELIER</span>
+            <h3 class="deck-item-title">Sesja</h3>
+            <p class="deck-item-desc">
+              Pełny dzień w atelier nad Wisłą. Trzy do pięciu godzin przed obiektywem, w przerwach kawa, rozmowa, czas na oddech. Muzyka, którą sobie wybierasz. Nigdy się nie spieszę.
+            </p>
+          </div>
+
+          <!-- 04 Galeria i Druk -->
+          <div class="process-deck-item">
+            <span class="deck-item-num">04</span>
+            <span class="deck-item-phase">RZEMIOSŁO & OPRAWA</span>
+            <h3 class="deck-item-title">Galeria i druk</h3>
+            <p class="deck-item-desc">
+              Tydzień po sesji dostajesz galerię online. Wybieramy razem zdjęcia do retuszu (dyskretnego — twoje ciało, nie obce). Odbierasz: pliki w pełnej rozdzielczości oraz oprawione zdjęcie w ramie dębowej z Manufaktury.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ----------------------------------------------------------------------- -->
+    <!-- SCENE 10: ATELIER, OPINIE & PIERWSZA ROZMOWA (KONTAKT) -->
+    <!-- ----------------------------------------------------------------------- -->
+    <section class="story-stage-auto" id="stage-atelier" data-track-num="10" data-track-label="KONTAKT">
+      <div class="container-luxury final-master-deck">
+        
+        <!-- Atelier Info & Atmosphere -->
+        <div class="atelier-atmosphere-grid">
+          <div class="at-photo-col">
+            <div class="at-frame">
+              <img src="/images/atelier_workspace.jpg" alt="Pracownia Atelier Dubiński nad Wisłą" loading="lazy">
+              <div class="at-badge">TCZEW NAD WISŁĄ &bull; SESJE NA ZAPROSZENIE</div>
+            </div>
+          </div>
+
+          <div class="at-text-col">
+            <span class="section-tag">ATELIER</span>
+            <h2 class="at-title">Pracownia nad Wisłą.</h2>
+            <div class="at-body">
+              <p>
+                Studio mieści się w Tczewie, czterdzieści minut samochodem z Gdańska, godzinę dziesięć z Bydgoszczy, trzy godziny z Warszawy. Wnętrze, w którym pracuję, zaprojektowałem sam — <strong>drewno, lniane zasłony, naturalne światło z północy, jedno duże okno.</strong>
+              </p>
+              <p>
+                Dla klientek z Trójmiasta organizuję transfer w obie strony. W bezpośrednim sąsiedztwie mamy miejsca, w których lubię, gdy klientka jada przed lub po sesji. Mogę zarezerwować stolik.
+              </p>
+            </div>
+
+            <div class="at-pills-row">
+              <div class="at-pill">
+                <span>ADRES</span>
+                <strong>Udostępniany po rezerwacji</strong>
+              </div>
+              <div class="at-pill">
+                <span>TRANSFER</span>
+                <strong>Gdańsk &bull; Sopot &bull; Gdynia (opcjonalnie)</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonials -->
+        <div class="reviews-section-block">
+          <div class="reviews-head text-center">
+            <span class="section-tag">ZAUFANIE</span>
+            <h3 class="reviews-title-text">Kobiety, które już były</h3>
+          </div>
+
+          <div class="reviews-grid-3">
+            <div class="review-box">
+              <div class="quote-sign">“</div>
+              <p class="review-quote-text">Nie wiedziałam, że potrafię tak wyglądać. Nie potrafię — to on zobaczył.</p>
+              <span class="review-client">A.M.</span>
+            </div>
+
+            <div class="review-box active-review">
+              <div class="quote-sign">“</div>
+              <p class="review-quote-text">Bałam się przez tydzień przed. W trakcie zapomniałam, że to sesja. Po pierwszym kadrze już byłam u siebie.</p>
+              <span class="review-client">K.W.</span>
+            </div>
+
+            <div class="review-box">
+              <div class="quote-sign">“</div>
+              <p class="review-quote-text">Te zdjęcia są jak album z miejsca, w którym byłam tylko ja. Zostają moje.</p>
+              <span class="review-client">J.S.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Direct Contact Form -->
+        <div class="contact-section-block" id="stage-contact">
+          <div class="contact-deck-grid">
+            
+            <div class="contact-form-col">
+              <span class="section-tag">KONTAKT</span>
+              <h2 class="contact-main-heading">Pierwsza rozmowa.</h2>
+              <p class="contact-sub-heading">Napisz parę słów o sobie. Odpowiem osobiście w ciągu 48 godzin.</p>
+
+              <form class="contact-actual-form" id="atelierContactForm">
+                <div class="form-dual-fields">
+                  <div class="input-wrap">
+                    <label for="fName">Imię</label>
+                    <input type="text" id="fName" name="name" required placeholder="Twoje imię">
+                  </div>
+                  <div class="input-wrap">
+                    <label for="fEmail">E-mail</label>
+                    <input type="email" id="fEmail" name="email" required placeholder="twoj@email.com">
+                  </div>
+                </div>
+
+                <div class="input-wrap">
+                  <label for="fPhone">Telefon (opcjonalnie)</label>
+                  <input type="tel" id="fPhone" name="phone" placeholder="+48 000 000 000">
+                </div>
+
+                <div class="input-wrap">
+                  <label for="fMessage">Co chciałabyś, żeby ta sesja Ci przyniosła?</label>
+                  <textarea id="fMessage" name="message" rows="4" placeholder="Napisz kilka słów o sobie, swoich oczekiwaniach lub pytaniach..."></textarea>
+                </div>
+
+                <div class="form-submit-row">
+                  <button type="submit" class="btn-primary-atelier btn-send-form">
+                    WYŚLIJ WIADOMOŚĆ →
+                  </button>
+                  <span class="privacy-note">Twoje dane są chronione i nigdy nie są udostępniane.</span>
+                </div>
+              </form>
+
+              <div class="form-success-state" id="formSuccessState" style="display: none;">
+                <span class="success-star-symbol">✦</span>
+                <h3>Dziękuję. Odezwę się w ciągu 48 godzin.</h3>
+                <p>Twoja wiadomość trafiła bezpośrednio do Radosława Dubińskiego.</p>
+              </div>
+            </div>
+
+            <div class="contact-info-col">
+              <div class="atelier-coord-card">
+                <div class="coord-header">
+                  <span class="coord-ad">AD</span>
+                  <div>
+                    <strong>Atelier Dubiński</strong>
+                    <span>atelier nad Wisłą &bull; Tczew</span>
+                  </div>
+                </div>
+
+                <div class="coord-rows">
+                  <div class="coord-row">
+                    <span class="coord-lbl">E-MAIL</span>
+                    <a href="mailto:radek@atelierdubinski.com" class="coord-val">radek@atelierdubinski.com</a>
+                  </div>
+                  <div class="coord-row">
+                    <span class="coord-lbl">INSTAGRAM</span>
+                    <a href="https://instagram.com/atelierdubinski" target="_blank" rel="noopener" class="coord-val">@atelierdubinski</a>
+                  </div>
+                  <div class="coord-row">
+                    <span class="coord-lbl">MANUFAKTURA DRZWI</span>
+                    <a href="https://dubinski.com.pl" target="_blank" rel="noopener" class="coord-val">dubinski.com.pl →</a>
+                  </div>
+                </div>
+
+                <div class="coord-availability">
+                  <p>
+                    <strong>Sesje rezerwuję na 6–10 tygodni naprzód.</strong><br>
+                    Cztery do sześciu klientek miesięcznie.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- LIGHTBOX MODAL -->
+  <div class="work-lightbox" id="workLightbox" aria-hidden="true" role="dialog">
+    <div class="lightbox-overlay" id="lightboxOverlay"></div>
+    <div class="lightbox-content">
+      <button type="button" class="btn-close-lightbox" id="btnCloseLightbox" aria-label="Zamknij">✕</button>
+      <div class="lightbox-frame-wrap">
+        <img src="" alt="" class="lightbox-img" id="lightboxImg">
+      </div>
+      <div class="lightbox-info">
+        <span class="lb-kicker" id="lbCat">PORTRET FINE-ART</span>
+        <h3 class="lb-title" id="lbTitle">Portret 01</h3>
+        <p class="lb-spec" id="lbSpec">120 × 90 cm &bull; Druk bawełniany &bull; Dąb wędzony</p>
+        <div class="lb-divider"></div>
+        <p class="lb-desc">Autorskie dzieło sztuki oprawione w lity dąb z Manufaktury Dubiński.</p>
+        <a href="#stage-contact" class="btn-primary-atelier mt-4" id="btnInquireFromLightbox">
+          ZAREZERWUJ ROZMOWĘ WSTĘPNĄ →
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/src/scripts/main.js"></script>
+</body>
+</html>

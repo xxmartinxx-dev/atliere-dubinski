@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atelier Dubiński — The Art of Being You</title>
+  <meta name="description" content="Autorskie doświadczenie fotografii artystycznej kobiet. Twoja historia, siła i piękno jako niepowtarzalne dzieło sztuki w autorskiej oprawie.">
+  
+  <meta property="og:title" content="Atelier Dubiński — The Art of Being You">
+  <meta property="og:description" content="Nie każda kobieta zostaje muzą. Ty możesz zostać dziełem sztuki.">
+  <meta property="og:image" content="/images/hero_bw_01.jpg">
+  
+  <!-- Google Fonts: Cormorant Garamond (Nagłówki) & Jost (Tekst) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/src/styles/index.css">
+</head>
+<body>
+
+  <!-- Custom Inertia Cursor -->
+  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+  <div class="cursor-circle" id="cursorCircle" aria-hidden="true"></div>
+
+  <!-- Noise Film Grain -->
+  <canvas id="grainCanvas" class="grain-overlay" aria-hidden="true"></canvas>
+
+  <!-- Global Header -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner">
+      <a href="#stage-hero" class="brand-logo" aria-label="Atelier Dubiński">
+        <span class="brand-ad">AD</span>
+        <div class="brand-titles">
+          <span class="brand-name">Atelier Dubiński</span>
+          <span class="brand-sub">THE ART OF BEING YOU</span>
+        </div>
+      </a>
+
+      <!-- Nav Links -->
+      <nav class="header-nav">
+        <a href="#stage-manifest" class="nav-link">MANIFEST</a>
+        <a href="#stage-filozofia" class="nav-link">FILOZOFIA</a>
+        <a href="#stage-obietnica" class="nav-link">OBIETNICA</a>
+        <a href="#stage-akt" class="nav-link">AKT</a>
+        <a href="#stage-doswiadczenie" class="nav-link">DOŚWIADCZENIE</a>
+        <a href="#stage-proces" class="nav-link">PROCES</a>
+        <a href="#stage-dzielo" class="nav-link">DZIEŁO</a>
+        <a href="#stage-faq" class="nav-link">PYTANIA</a>
+        <a href="#stage-final" class="nav-link">KONTAKT</a>
+      </nav>
+
+      <div class="header-controls">
+        <!-- Narrative Tracker -->
+        <div class="narrative-tracker" id="narrativeTracker">
+          <span class="tracker-num" id="currentTrackNum">01</span>
+          <span class="tracker-sep">/</span>
+          <span class="tracker-total">13</span>
+          <span class="tracker-label" id="currentTrackLabel">HERO</span>
+        </div>
+
+        <button type="button" class="btn-sound" id="btnSound" aria-label="Dźwięk pracowni">
+          <span class="sound-wave">
+            <i></i><i></i><i></i><i></i>
+          </span>
+          <span class="sound-label" id="soundLabel">DŹWIĘK</span>
+        </button>
+
+        <a href="#stage-final" class="btn-inquire">
+          ROZMOWA
+        </a>
+
+        <button type="button" class="mobile-toggle" id="mobileMenuToggle" aria-label="Menu">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+    <div class="mobile-drawer-inner">
+      <nav class="mobile-nav">
+        <a href="#stage-hero" class="mobile-link" data-close-drawer>01. Hero &bull; Nie każda kobieta zostaje muzą</a>
+        <a href="#stage-manifest" class="mobile-link" data-close-drawer>02. Manifest marki &bull; Tylko dla siebie</a>
+        <a href="#stage-filozofia" class="mobile-link" data-close-drawer>03. Filozofia &bull; Piękno bez daty ważności</a>
+        <a href="#stage-obietnica" class="mobile-link" data-close-drawer>04. Najważniejsza obietnica</a>
+        <a href="#stage-akt" class="mobile-link" data-close-drawer>05. Akt artystyczny &bull; Granice</a>
+        <a href="#stage-doswiadczenie" class="mobile-link" data-close-drawer>06. Doświadczenie atelier</a>
+        <a href="#stage-proces" class="mobile-link" data-close-drawer>07. Proces &bull; Od rozmowy do dzieła</a>
+        <a href="#stage-prywatnosc" class="mobile-link" data-close-drawer>08. Prywatność &bull; Fundament</a>
+        <a href="#stage-dzielo" class="mobile-link" data-close-drawer>09. Dzieło &bull; Czarna oprawa 3D</a>
+        <a href="#stage-wartosc" class="mobile-link" data-close-drawer>10. Wartość &bull; Rzeczy bezcenne</a>
+        <a href="#stage-dla-kogo" class="mobile-link" data-close-drawer>11. Dla kogo jest ta sesja</a>
+        <a href="#stage-faq" class="mobile-link" data-close-drawer>12. Najczęstsze pytania (FAQ)</a>
+        <a href="#stage-final" class="mobile-link" data-close-drawer>13. Finał &bull; Rozmowa o portrecie</a>
+      </nav>
+      <a href="#stage-final" class="btn-primary-atelier w-full" data-close-drawer>
+        POROZMAWIAJMY O TWOIM PORTRECIE →
+      </a>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- MASTER SCROLLYTELLING CONTAINER -->
+  <!-- ========================================================================= -->
+  <main class="scrollytelling-main" id="scrollyMain">
+
+    <!-- ----------------------------------------------------------------------- -->
+    <!-- SEKCJA 1 — HERO: 3 RÓŻNE ZDJĘCIA NA TLE Z PŁYNNYM PRZEŁĄCZANIEM -->
+    <!-- ----------------------------------------------------------------------- -->
+    <section class="story-stage hero-stage-full" id="stage-hero" data-track-num="01" data-track-label="HERO">
+      <div class="stage-sticky-screen">
+        
+        <!-- 3 RÓŻNE ZDJĘCIA W TLE (CZARNOBIAŁE, PEŁNOEKRANOWE, ZMIENNE) -->
+        <div class="hero-canvas-frame" id="heroCanvasFrame">
+          <div class="hero-bg-slide active" data-slide="0">
+            <img src="/images/hero_bw_01.jpg" alt="Portret kobiecy w czerni i bieli — Atelier Dubiński" class="hero-canvas-img">
+            <div class="hero-bg-badge">KADR 01 &bull; PORTRET WEWNĘTRZNY &bull; ŚWIATŁOCIEŃ</div>
+          </div>
+          <div class="hero-bg-slide" data-slide="1">
+            <img src="/images/hero_bw_02.jpg" alt="Kobieta w europejskiej architekturze — Atelier Dubiński" class="hero-canvas-img">
+            <div class="hero-bg-badge">KADR 02 &bull; SCENOGRAFIA EUROPEJSKA &bull; RZYM & PARYŻ</div>
+          </div>
+          <div class="hero-bg-slide" data-slide="2">
+            <img src="/images/hero_bw_03.jpg" alt="Intymny profil i gra światła — Atelier Dubiński" class="hero-canvas-img">
+            <div class="hero-bg-badge">KADR 03 &bull; SUBTELNY PROFIL &bull; POEZJA ŚWIATŁA</div>
+          </div>
+          
+          <div class="hero-dark-vignette"></div>
+          <div class="hero-chiaroscuro-light" id="heroLightBeam"></div>
+          <div class="hero-macro-paper-grain" id="heroMacroGrain"></div>
+
+          <!-- KONTROLER 3 ZDJĘĆ W TLE -->
+          <div class="hero-bg-switcher" id="heroBgSwitcher" aria-label="Wybór zdjęcia na tle">
+            <span class="switcher-kicker">ZDJĘCIE W TLE:</span>
+            <div class="switcher-buttons-group">
+              <button type="button" class="bg-switch-btn active" data-target-slide="0" aria-label="Zdjęcie 01">
+                <span class="btn-num">01</span>
+                <span class="btn-bar"></span>
+              </button>
+              <button type="button" class="bg-switch-btn" data-target-slide="1" aria-label="Zdjęcie 02">
+                <span class="btn-num">02</span>
+                <span class="btn-bar"></span>
+              </button>
+              <button type="button" class="bg-switch-btn" data-target-slide="2" aria-label="Zdjęcie 03">
+                <span class="btn-num">03</span>
+                <span class="btn-bar"></span>
+              </button>
+            </div>
+            <div class="switcher-arrows">
+              <button type="button" class="btn-arrow" id="btnPrevBg" aria-label="Poprzednie zdjęcie">‹</button>
+              <button type="button" class="btn-arrow" id="btnNextBg" aria-label="Następne zdjęcie">›</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- TYPOGRAFIA HERO -->
+        <div class="hero-narrative-overlay container-luxury">
+          <div class="hero-content-box">
+            <div class="brand-tag-wrapper">
+              <span class="brand-pill-tag">ATELIER DUBIŃSKI</span>
+              <span class="brand-pill-sub">THE ART OF BEING YOU</span>
+            </div>
+
+            <h1 class="hero-main-title">
+              Nie każda kobieta zostaje muzą.<br>
+              <span class="text-gold">Ty możesz zostać dziełem sztuki.</span>
+            </h1>
+
+            <div class="gold-accent-line mx-auto"></div>
+
+            <div class="hero-lead-paragraphs">
+              <p>Istnieją portrety, na które patrzymy. I takie, od których nie potrafimy oderwać wzroku.</p>
+              <p>Atelier Dubiński to autorskie doświadczenie fotografii artystycznej, w którym Twoja osobowość, historia i piękno stają się inspiracją do stworzenia niepowtarzalnego dzieła.</p>
+              <p class="hero-highlight-note">Nie musisz być modelką. Nie musisz umieć pozować. Nie musisz nikomu niczego udowadniać.</p>
+              <p class="hero-conclusion-bold"><strong>Wystarczy, że będziesz sobą.</strong></p>
+            </div>
+
+            <div class="hero-cta-action">
+              <a href="#stage-manifest" class="btn-primary-atelier btn-gold-luxury">
+                ODKRYJ SWOJĄ HISTORIĘ ↓
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="scroll-prompt-indicator">
+          <span class="prompt-line"></span>
+          <span class="prompt-text">PRZEWIŃ, ABY ODKRYĆ OPOWIEŚĆ</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ----------------------------------------------------------------------- -->
+    <!-- SEKCJA 2 — MANIFEST MARKI -->
+    <!-- ----------------------------------------------------------------------- -->
+    <section class="story-stage-auto bg-charcoal" id="stage-manifest" data-track-num="02" data-track-label="MANIFEST">
+      <div class="container-luxury">
+        <div class="section-badge-row">
+          <span class="section-tag">SEKCJA 02 &bull; MANIFEST MARKI</span>
+        </div>
+
+        <div class="manifest-grid-split">
+          <div class="manifest-left-col">
+            <h2 class="serif-section-title">
+              Przez całe życie jesteś dla kogoś.<br>
+              <span class="text-gold">A kiedy ostatnio byłaś tylko dla siebie?</span>
+            </h2>
+            <div class="gold-accent-line"></div>
+
+            <div class="manifest-roles-card black-framed-box">
+              <p class="manifest-lead">Być może jesteś kobietą, która wiele osiągnęła.</p>
+              <div class="roles-words-stream">
+                <span>Budowałaś.</span>
+                <span>Tworzyłaś.</span>
+                <span>Podejmowałaś decyzje.</span>
+                <span>Kochałaś.</span>
+                <span>Zmieniałaś się.</span>
+              </div>
+              <p class="roles-summary">Byłaś partnerką, matką, przyjaciółką, liderką.</p>
+            </div>
+          </div>
+
+          <div class="manifest-right-col">
+            <div class="manifest-you-card black-framed-box">
+              <span class="card-kicker">W SERCU HISTORII</span>
+              <p class="manifest-intro-p">Ale poza wszystkimi rolami, które pełnisz, istnieje jeszcze jedna osoba.</p>
+              
+              <div class="the-you-monument">
+                <span class="the-you-word">Ty.</span>
+              </div>
+
+              <div class="manifest-prose-stream">
+                <p>Nie ta sprzed dwudziestu lat. Nie ta, którą chciałabyś kiedyś zostać.</p>
+                <p class="accent-text-gold"><strong>Ta, którą jesteś dzisiaj.</strong></p>
+                <p>Z całą swoją historią. Siłą. Wrażliwością. Doświadczeniem.</p>
+              </div>
+
+              <div class="manifest-question-box">
+                <blockquote>A gdyby tak właśnie ona stała się inspiracją dla sztuki?</blockquote>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ----------------------------------------------------------------------- -->
+    <!-- SEKCJA 3 — FILOZOFIA -->
+    <!-- ----------------------------------------------------------------------- -->
+    <section class="story-stage-auto" id="stage-filozofia" data-track-num="03" data-track-label="FILOZOFIA">
+      <div class="container-luxury">
+        <div class="section-badge-row">
+          <span class="section-tag">SEKCJA 03 &bull; FILOZOFIA</span>
+        </div>
+
+        <div class="filozofia-layout-wrap">
+          <div class="filozofia-header-center text-center">
+            <h2 class="serif-monumental-heading">
+              Piękno nie ma daty ważności.
+            </h2>
+            <div class="gold-accent-line mx-auto"></div>
+          </div>
+
+          <div class="filozofia-tri-grid">
+            <div class="filo-card black-framed-box">
+              <span class="filo-num">I</span>
+              <h3>Prawda zamiast iluzji</h3>
+              <p>Nie wierzymy, że kobieta powinna zatrzymać czas. Nie wierzymy, że piękno należy wyłącznie do młodości.</p>
+            </div>
+
+            <div class="filo-card black-framed-box active-filo">
+              <span class="filo-num text-gold">II</span>
+              <h3>Zapisane doświadczenie</h3>
+              <p>Wierzymy natomiast, że z każdym przeżytym rokiem kobieta staje się coraz bardziej niepowtarzalna.</p>
+              <p class="filo-subdetail">W spojrzeniu zapisują się doświadczenia. W gestach pojawia się pewność. W twarzy — historia, której nie da się powtórzyć.</p>
+            </div>
+
+            <div class="filo-card black-framed-box">
+              <span class="filo-num">III</span>
+              <h3>Odnaleźć niewidoczne</h3>
+              <p>Nie chcemy wymazywać tego, kim jesteś.</p>
+              <p class="filo-quote-gold">„Chcemy odnaleźć w Tobie to, czego być może sama jeszcze nie dostrzegasz.”</p>
+            </div>
+          </div>
+
+          <div class="filozofia-bottom-banner black-framed-box text-center">
+            <p class="banner-oppose">Nie tworzymy portretów idealnych kobiet.</p>
+            <h3 class="banner-affirm text-gold">Tworzymy niezwykłe portrety prawdziwych kobiet.</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ----------------------------------------------------------------------- -->
+    <!-- SEKCJA 4 — NAJWAŻNIEJSZA OBIETNICA -->
+    <!-- ----------------------------------------------------------------------- -->
+    <section class="story-stage-auto bg-charcoal" id="stage-obietnica" data-track-num="04" data-track-label="OBIETNICA">
+      <div class="container-luxury">
+        <div class="section-badge-row">
+          <span class="section-tag">SEKCJA 04 &bull; NAJWAŻNIEJSZA OBIETNICA</span>
+        </div>
+
+        <div class="obietnica-screen-grid">
+          <div class="obietnica-left-col">
+            <h2 class="serif-section-title">
+              Nie musisz być fotogeniczna.<br>
+              <span class="text-gold">To nie Twoje zadanie.</span>
+            </h2>
+            <div class="gold-accent-line"></div>
+
+            <div class="fears-quote-deck">
+              <div class="fear-item-card">
+                <span class="fear-mark">“</span>
+                <p>„Nie umiem pozować”.</p>
+              </div>
+              <div class="fear-item-card">
+                <span class="fear-mark">“</span>
+                <p>„Nigdy nie wychodzę dobrze na zdjęciach”.</p>
+              </div>
+              <div class="fear-item-card">
+                <span class="fear-mark">“</span>
+                <p>„Nie mam figury modelki”.</p>
+              </div>
+              <div class="fear-item-card">
+                <span class="fear-mark">“</span>
+                <p>„Nie wiedziałabym, co zrobić przed obiektywem”.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="obietnica-right-col">
+            <div class="obietnica-manifest-card black-framed-box">
+              <span class="card-kicker">NASZA ODPOWIEDZIALNOŚĆ</span>
+              
+              <p class="obietnica-intro">
+                To słowa, które często pojawiają się jeszcze przed podjęciem decyzji o sesji.
+              </p>
+
+              <div class="obietnica-body-stream">
+                <p>Ale nie musisz przychodzić do nas z gotowością do pozowania.</p>
+                <p>Nie oczekujemy doświadczenia, perfekcyjnej sylwetki ani znajomości własnych najlepszych ujęć.</p>
+                <p>To artysta odpowiada za światło, kompozycję i sposób, w jaki zostaniesz przedstawiona.</p>
+                <p>Ty nie musisz wiedzieć, jak stworzyć wyjątkowy portret.</p>
+              </div>
+
+              <div class="obietnica-crescendo">
+                <span class="crescendo-pre">TWOJE JEDYNE ZADANIE TO BYĆ SOBĄ</span>
+                <h3 class="crescendo-text text-gold">Od tego jesteśmy my.</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ----------------------------------------------------------------------- -->
+    <!-- SEKCJA 5 — AKT ARTYSTYCZNY -->
+    <!-- ----------------------------------------------------------------------- -->
+    <section class="story-stage-auto" id="stage-akt" data-track-num="05" data-track-label="AKT">
+      <div class="container-luxury">
+        <div class="section-badge-row">
+          <span class="section-tag">SEKCJA 05 &bull; AKT ARTYSTYCZNY</span>
+        </div>
+
+        <div class="akt-content-wrapper">
+          <div class="akt-head text-center">
+            <h2 class="serif-monumental-heading">
+              Nie wszystko, co piękne, musi zostać odsłonięte.
+            </h2>
+            <div class="gold-accent-line mx-auto"></div>
+            <p class="akt-sensory-lead">
+              Czasem wystarczy spojrzenie. Linia ramienia. Delikatny ruch dłoni. Sylwetka otulona światłem.
+            </p>
+          </div>
+
+          <div class="akt-three-pillars-grid">
+            <div class="akt-option-card black-framed-box">
+              <span class="option-pill">01</span>
+              <h3>Klasyczny Portret</h3>
+              <p>Skupienie na twarzy, spojrzeniu i osobowości. Stylizacja w tkaninach, które kochasz, w świetle rzeźbiącym formę.</p>
+            </div>
+
+            <div class="akt-option-card black-framed-box active-akt">
+              <span class="option-pill text-gold">02</span>
+              <h3>Subtelny Półakt</h3>
+              <p>Niedopowiedzenie, gra cienia, jedwab, lniana zasłona. Forma zmysłowa, pozostawiająca przestrzeń wyobraźni.</p>
+            </div>
+
+            <div class="akt-option-card black-framed-box">
+              <span class="option-pill">03</span>
+              <h3>Akt Artystyczny</h3>
+              <p>Czyste studium ciała i rzeźbiarskiego światłocienia. Klasyczna estetyka muzealna i pełen szacunek dla intymności.</p>
+            </div>
+          </div>
+
+          <div class="akt-boundaries-banner black-framed-box">
+            <div class="boundaries-left">
+              <p>W Atelier Dubiński ciało może stać się częścią artystycznej opowieści — nigdy jednak jej obowiązkowym elementem.</p>
+              <p>Akt artystyczny nie jest próbą odwagi ani przekraczania własnych granic. Jest jedną z form ekspresji, którą możesz wybrać, jeśli czujesz, że odpowiada Twojej wizji.</p>
+              <p>Nie musisz podejmować tej decyzji od razu. Nie musisz odsłaniać więcej, niż chcesz.</p>
+            </div>
+            <div class="boundaries-right">
+              <div class="boundaries-gold-statement">
+                <strong>To Twoje ciało.<br>Twoja historia.<br>Twoje granice.</strong>
+                <span class="statement-sub">A naszym zadaniem jest je szanować.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ----------------------------------------------------------------------- -->
+    <!-- SEKCJA 6 — DOŚWIADCZENIE -->
+    <!-- ----------------------------------------------------------------------- -->
+    <section class="story-stage-auto bg-charcoal" id="stage-doswiadczenie" data-track-num="06" data-track-label="DOŚWIADCZENIE">
+      <div class="container-luxury">
+        <div class="section-badge-row">
+          <span class="section-tag">SEKCJA 06 &bull; DOŚWIADCZENIE</span>
+        </div>
+
+        <div class="experience-master-grid">
+          <div class="exp-intro-col">
+            <h2 class="serif-section-title">
+              Przez chwilę świat może kręcić się wokół Ciebie.
+            </h2>
+            <div class="gold-accent-line"></div>
+
+            <p class="exp-prose-p">
+              Wyobraź sobie, że wyjeżdżasz do jednego z najpiękniejszych europejskich miast. Nie w pośpiechu. Nie pomiędzy kolejnymi obowiązkami.
+            </p>
+            <p class="exp-prose-p">
+              Tym razem nie musisz wszystkiego organizować, planować ani kontrolować.
+            </p>
+
+            <div class="cities-triptych-pills">
+              <div class="city-pill">
+                <strong>PARYŻ</strong>
+                <span>Światło i architektura</span>
+              </div>
+              <div class="city-pill">
+                <strong>RZYM</strong>
+                <span>Klasyka i monumentalizm</span>
+              </div>
+              <div class="city-pill">
+                <strong>ATENY</strong>
+                <span>Czysta forma i kamień</span>
+              </div>
+            </div>
+
+            <div class="exp-cta-row">
+              <a href="#stage-proces" class="btn-primary-atelier">
+                POZNAJ DOŚWIADCZENIE ATELIER →
+              </a>
+            </div>
+          </div>
+
+          <div class="exp-visual-card black-framed-box">
+            <div class="exp-media-wrap">
+              <img src="/images/hero_bw_02.jpg" alt="Doświadczenie europejskiej sesji artystycznej — Atelier Dubiński" class="exp-visual-img" loading="lazy">
+              <div class="exp-media-caption">
+                <span>SCENOGRAFIA: MIASTO JAKO TŁO TWOJEJ HISTORII</span>
+              </div>
+            </div>
+
+            <div class="exp-details-list">
+              <div class="exp-detail-point">
+                <strong>Autorska scenografia i nastrój</strong>
+                <p>Miasto staje się scenografią, światło tworzy nastrój, a Ty jesteś bohaterką tej opowieści.</p>
+              </div>
+              <div class="exp-detail-point">
+                <strong>Opieka i stylizacja</strong>
+                <p>Starannie przygotowana stylizacja. Profesjonalny makijaż i fryzura. Atmosfera, w której możesz poczuć się swobodnie i wyjątkowo.</p>
+              </div>
+              <div class="exp-detail-point point-gold">
+                <strong>Przestrzeń wyłącznie dla Ciebie</strong>
+                <p>Każdy element doświadczenia ma jeden cel: stworzyć przestrzeń, w której będziesz mogła skupić się na sobie. Nie musisz stawać się kimś innym.</p>
+                <small>Pozwól sobie przez chwilę być najważniejszą osobą we własnej historii.</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ----------------------------------------------------------------------- -->
+    <!-- SEKCJA 7 — PROCES -->
+    <!-- ----------------------------------------------------------------------- -->
+    <section class="story-stage-auto" id="stage-proces" data-track-num="07" data-track-label="PROCES">
+      <div class="container-luxury">
+        <div class="section-badge-row">
+          <span class="section-tag">SEKCJA 07 &bull; PROCES</span>
+        </div>
+
+        <div class="process-headline-center text-center">
+          <h2 class="serif-monumental-heading">
+            Od pierwszej rozmowy do ostatniego detalu.
+          </h2>
+          <div class="gold-accent-line mx-auto"></div>
+          <p class="process-intro-sub">
+            Sześć starannie przemyślanych etapów, które dają Ci pełen komfort, bezpieczeństwo i zachwyt.
+          </p>
+        </div>
+
+        <div class="process-six-steps-grid">
+          
+          <!-- 01 -->
+          <div class="step-card-box black-framed-box">
+            <div class="step-card-header">
+              <span class="step-idx">01</span>
+              <span class="step-category">ROZMOWA</span>
+            </div>
+            <h3 class="step-title">Poznajemy Twoją historię</h3>
+            <p class="step-description">
+              Zanim powstanie pierwszy portret, chcemy Cię poznać. Porozmawiać o tym, jaka jesteś, co Cię inspiruje i w jaki sposób chcesz zostać przedstawiona.
+            </p>
+            <p class="step-note text-gold">Nie potrzebujesz gotowej wizji. Wspólnie poszukamy kierunku, który będzie Ci bliski.</p>
+          </div>
+
+          <!-- 02 -->
+          <div class="step-card-box black-framed-box">
+            <div class="step-card-header">
+              <span class="step-idx">02</span>
+              <span class="step-category">WIZJA</span>
+            </div>
+            <h3 class="step-title">Tworzymy Twoją artystyczną koncepcję</h3>
+            <p class="step-description">
+              Światło, nastrój, stylizacje, przestrzeń, kompozycja.
+            </p>
+            <p class="step-note">Każdy element zostanie przemyślany tak, aby stworzyć spójną opowieść — nie przypadkowy zbiór pięknych fotografii.</p>
+          </div>
+
+          <!-- 03 -->
+          <div class="step-card-box black-framed-box">
+            <div class="step-card-header">
+              <span class="step-idx">03</span>
+              <span class="step-category">OPIEKA</span>
+            </div>
+            <h3 class="step-title">Przygotowujemy Cię do doświadczenia</h3>
+            <p class="step-description">
+              Makijaż, fryzura, stylizacje i opieka podczas przygotowań pomogą Ci wejść w atmosferę sesji.
+            </p>
+            <p class="step-note">Nie musisz samodzielnie zastanawiać się nad każdym szczegółem.</p>
+          </div>
+
+          <!-- 04 -->
+          <div class="step-card-box black-framed-box">
+            <div class="step-card-header">
+              <span class="step-idx">04</span>
+              <span class="step-category">KREACJA</span>
+            </div>
+            <h3 class="step-title">Stajesz przed obiektywem</h3>
+            <p class="step-description">
+              Nie oczekujemy od Ciebie znajomości póz ani doświadczenia modelki. Fotograf prowadzi Cię przez kolejne ujęcia, dbając o światło, gesty i kompozycję.
+            </p>
+            <p class="step-note text-gold">Wszystko odbywa się w tempie, które pozwala Ci zachować komfort.</p>
+          </div>
+
+          <!-- 05 -->
+          <div class="step-card-box black-framed-box">
+            <div class="step-card-header">
+              <span class="step-idx">05</span>
+              <span class="step-category">RZEMIOSŁO</span>
+            </div>
+            <h3 class="step-title">Powstaje Twoje dzieło</h3>
+            <p class="step-description">
+              Wybrane fotografie stają się podstawą autorskiego opracowania artystycznego.
+            </p>
+            <p class="step-note">Obraz zostaje przeniesiony z cyfrowej przestrzeni do świata rzeczywistego — w formie szlachetnego wydruku i starannie wykonanej czarnej oprawy.</p>
+          </div>
+
+          <!-- 06 -->
+          <div class="step-card-box black-framed-box">
+            <div class="step-card-header">
+              <span class="step-idx">06</span>
+              <span class="step-category">DZIEDZICTWO</span>
+            </div>
+            <h3 class="step-title">Historia znajduje swoje miejsce</h3>
+            <p class="step-description">
+              Gotowe dzieło możesz powiesić we własnym domu, zachować w prywatnej kolekcji albo przekazać komuś, kto jest dla Ciebie ważny.
+            </p>
+            <p class="step-note text-gold">To już nie jest tylko fotografia z pewnego dnia. To część Twojej historii, która pozostaje.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ----------------------------------------------------------------------- -->
+    <!-- SEKCJA 8 — PRYWATNOŚĆ -->
+    <!-- ----------------------------------------------------------------------- -->
+    <section class="story-stage-auto bg-charcoal" id="stage-prywatnosc" data-track-num="08" data-track-label="PRYWATNOŚĆ">
+      <div class="container-luxury">
+        <div class="section-badge-row">
+          <span class="section-tag">SEKCJA 08 &bull; PRYWATNOŚĆ</span>
+        </div>
+
+        <div class="privacy-master-card black-framed-box">
+          <div class="privacy-seal-icon">AD &bull; DYSKRECJA</div>
+
+          <h2 class="serif-monumental-heading text-center">
+            Są historie, które nie potrzebują publiczności.
+          </h2>
+          <div class="gold-accent-line mx-auto"></div>
+
+          <div class="privacy-dual-column">
+            <div class="privacy-text-block">
+              <p>Nie każda sztuka musi być wystawiana na widok innych.</p>
+              <p>Być może zapragniesz podzielić się swoim portretem ze światem. A być może będzie to najbardziej osobiste dzieło, jakie kiedykolwiek posiadałaś.</p>
+              <p class="privacy-equal-choice"><strong>Obie decyzje są równie wartościowe.</strong></p>
+            </div>
+
+            <div class="privacy-text-block">
+              <p>To Ty wybierasz, jak intymny będzie charakter zdjęć i czy chcesz udostępniać swój wizerunek innym.</p>
+              
+              <div class="privacy-foundation-badge">
+                <span>TWOJA PRYWATNOŚĆ NIE JEST DODATKIEM DO DOŚWIADCZENIA.</span>
+                <strong class="text-gold">Jest jego fundamentem.</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ----------------------------------------------------------------------- -->
+    <!-- SEKCJA 9 — DZIEŁO (Z MONTAŻEM 3D I CZARNĄ LAKIEROWANĄ RAMĄ) -->
+    <!-- ----------------------------------------------------------------------- -->
+    <section class="story-stage-auto bg-charcoal" id="stage-dzielo" data-track-num="09" data-track-label="DZIEŁO">
+      <div class="container-luxury dzielo-container-box">
+        
+        <div class="assembly-top-title text-center">
+          <span class="section-tag">SEKCJA 09 &bull; DZIEŁO &bull; ANATOMIA OBIEKTU</span>
+          <h2 class="serif-monumental-heading">
+            Fotografia przemija na ekranie.<br>
+            <span class="text-gold">Sztuka pozostaje w przestrzeni.</span>
+          </h2>
+          <div class="gold-accent-line mx-auto"></div>
+          <p class="assembly-sub-text">Nie oddajemy Ci pliku. Tworzymy fizyczny obiekt w szlachetnej, czarnej oprawie.</p>
+        </div>
+
+        <div class="assembly-3d-wrapper">
+          
+          <!-- 3D Exploded Card Stage with Black Frame -->
+          <div class="exploded-card-viewport" id="explodedViewport">
+            <div class="exploded-card-deck" id="explodedDeck">
+              
+              <!-- Layer 1: Czarna Rama -->
+              <div class="exploded-layer layer-frame-3d black-gallery-frame" id="exLayerFrame">
+                <div class="frame-wood-mockup">
+                  <div class="corner-spline c-tl"></div>
+                  <div class="corner-spline c-tr"></div>
+                  <div class="corner-spline c-bl"></div>
+                  <div class="corner-spline c-br"></div>
+                </div>
+                <div class="layer-annotation annot-frame">
+                  <span class="annot-num">01</span>
+                  <strong>CZARNA LITA RAMA</strong>
+                  <small>Głęboka czerń galeryjna &bull; Pióro narożne</small>
+                </div>
+              </div>
+
+              <!-- Layer 2: Museum Glass -->
+              <div class="exploded-layer layer-glass-3d" id="exLayerGlass">
+                <div class="glass-reflection-glare"></div>
+                <div class="layer-annotation annot-glass">
+                  <span class="annot-num">02</span>
+                  <strong>SZKŁO MUZEALNE UV 99%</strong>
+                  <small>Ultra-Clear &bull; Redukcja odblasków do 0.5%</small>
+                </div>
+              </div>
+
+              <!-- Layer 3: Passe-Partout -->
+              <div class="exploded-layer layer-mat-3d" id="exLayerMat">
+                <div class="mat-inner-window"></div>
+                <div class="layer-annotation annot-mat">
+                  <span class="annot-num">03</span>
+                  <strong>PASSE-PARTOUT BEZKWASOWE</strong>
+                  <small>8-Ply Bawełna &bull; Skos 45° &bull; Archiwalne</small>
+                </div>
+              </div>
+
+              <!-- Layer 4: Fine Art B&W Print -->
+              <div class="exploded-layer layer-print-3d" id="exLayerPrint">
+                <img src="/images/hero_bw_01.jpg" alt="Druk fine-art portretu czarno-białego" class="print-matte-img">
+                <div class="print-seal-mark">AD &bull; 1/1 UNIKAT</div>
+                <div class="layer-annotation annot-print">
+                  <span class="annot-num">04</span>
+                  <strong>DRUK PIGMENTOWY B&W</strong>
+                  <small>Hahnemühle Cotton Rag 310g &bull; Sygnowany</small>
+                </div>
+              </div>
+
+              <!-- Layer 5: Backing Plaque -->
+              <div class="exploded-layer layer-back-3d" id="exLayerBack">
+                <div class="timber-backing-surface">
+                  <div class="backing-plaque">
+                    <strong>ATELIER DUBIŃSKI</strong>
+                    <span>CERTIFIED ARCHIVAL OBJECT</span>
+                  </div>
+                </div>
+                <div class="layer-annotation annot-back">
+                  <span class="annot-num">05</span>
+                  <strong>PLECY I CERTYFIKAT</strong>
+                  <small>Certyfikowana pieczęć lakowa Atelier</small>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+        <div class="assembly-bottom-prose black-framed-box text-center">
+          <p class="assembly-prose-p">Każdego dnia powstają miliony zdjęć. Zapisujemy je w telefonach. Przesuwamy palcem. Zapominamy. Ale istnieją obrazy, którym nadajemy inną wartość — takie, które zatrzymują spojrzenie i stają się częścią wnętrza oraz osobistej historii.</p>
+          <p class="assembly-prose-highlight text-gold"><strong>W Atelier Dubiński fotografia nie kończy się w chwili naciśnięcia spustu migawki. To dopiero początek. Ostateczne dzieło powstaje w połączeniu światła, artystycznej interpretacji oraz rzemiosła oprawy.</strong></p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ----------------------------------------------------------------------- -->
+    <!-- SEKCJA 10 — WARTOŚĆ -->
+    <!-- ----------------------------------------------------------------------- -->
+    <section class="story-stage-auto bg-charcoal" id="stage-wartosc" data-track-num="10" data-track-label="WARTOŚĆ">
+      <div class="container-luxury">
+        <div class="section-badge-row">
+          <span class="section-tag">SEKCJA 10 &bull; WARTOŚĆ</span>
+        </div>
+
+        <div class="wartosc-layout-wrapper">
+          <div class="wartosc-head text-center">
+            <h2 class="serif-monumental-heading">
+              Nie wszystko, co cenne, musi być praktyczne.
+            </h2>
+            <div class="gold-accent-line mx-auto"></div>
+            <p class="wartosc-subtitle">
+              Są rzeczy, które kupujemy, ponieważ ich potrzebujemy. I takie, na które decydujemy się, ponieważ mają dla nas znaczenie.
+            </p>
+          </div>
+
+          <div class="wartosc-three-examples">
+            <div class="wartosc-card black-framed-box">
+              <span class="v-symbol">✦</span>
+              <h3>Podróż</h3>
+              <p>Którą pamiętamy przez całe życie i do której wracamy we wspomnieniach.</p>
+            </div>
+
+            <div class="wartosc-card black-framed-box">
+              <span class="v-symbol">✦</span>
+              <h3>Biżuteria</h3>
+              <p>Przekazywana z pokolenia na pokolenie jako materialny nośnik miłości i czasu.</p>
+            </div>
+
+            <div class="wartosc-card black-framed-box">
+              <span class="v-symbol text-gold">✦</span>
+              <h3 class="text-gold">Obraz</h3>
+              <p>Którego nie potrafimy zastąpić żadnym innym, bo kryje w sobie cząstkę prawdy.</p>
+            </div>
+          </div>
+
+          <div class="wartosc-summary-deck black-framed-box">
+            <div class="v-sum-col">
+              <h4>Atelier Dubiński należy do tej drugiej kategorii.</h4>
+              <p>To osobiste doświadczenie, czas poświęcony wyłącznie Tobie i indywidualnie stworzone dzieło sztuki.</p>
+              <p>Nie powstaje po to, by spełniać chwilowy trend. Powstaje po to, by mieć znaczenie także za wiele lat.</p>
+            </div>
+            <div class="v-sum-col col-highlight">
+              <span class="sum-kicker">TWOJE PRAWO DO PIĘKNA</span>
+              <blockquote class="v-sum-quote text-gold">
+                „Nie musisz szukać powodu, by zrobić coś wyłącznie dla siebie.”
+              </blockquote>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ----------------------------------------------------------------------- -->
+    <!-- SEKCJA 11 — DLA KOGO -->
+    <!-- ----------------------------------------------------------------------- -->
+    <section class="story-stage-auto" id="stage-dla-kogo" data-track-num="11" data-track-label="DLA KOGO">
+      <div class="container-luxury">
+        <div class="section-badge-row">
+          <span class="section-tag">SEKCJA 11 &bull; DLA KOGO</span>
+        </div>
+
+        <div class="dlakogo-header-center text-center">
+          <h2 class="serif-monumental-heading">
+            Dla kobiety, która nie potrzebuje pozwolenia, by być sobą.
+          </h2>
+          <div class="gold-accent-line mx-auto"></div>
+        </div>
+
+        <div class="dlakogo-personas-grid">
+          
+          <div class="persona-card black-framed-box">
+            <span class="persona-bullet">✦</span>
+            <p><strong>Dla tej, która wiele osiągnęła</strong> i pragnie uczcić kolejny etap swojego życia.</p>
+          </div>
+
+          <div class="persona-card black-framed-box">
+            <span class="persona-bullet">✦</span>
+            <p><strong>Dla tej, która po latach troski o innych</strong> chce poświęcić czas sobie.</p>
+          </div>
+
+          <div class="persona-card black-framed-box">
+            <span class="persona-bullet">✦</span>
+            <p><strong>Dla tej, która zawsze marzyła</strong> o artystycznym portrecie, ale nigdy nie odważyła się stanąć przed obiektywem.</p>
+          </div>
+
+          <div class="persona-card black-framed-box">
+            <span class="persona-bullet">✦</span>
+            <p><strong>Dla tej, która kocha sztukę</strong> i pragnie stać się jej częścią.</p>
+          </div>
+
+          <div class="persona-card black-framed-box">
+            <span class="persona-bullet">✦</span>
+            <p><strong>Dla tej, która chce zachować w obrazie</strong> swój charakter, swoją siłę, swoją delikatność.</p>
+          </div>
+
+          <div class="persona-card black-framed-box active-persona">
+            <span class="persona-bullet text-gold">✦</span>
+            <p><strong>I dla tej, która nie potrzebuje szczególnej okazji.</strong></p>
+          </div>
+
+        </div>
+
+        <div class="dlakogo-final-punch black-framed-box text-center">
+          <span class="punch-kicker">NAJWAŻNIEJSZA PRAWDA</span>
+          <h3 class="punch-text text-gold">Bo najważniejszą okazją możesz być Ty sama.</h3>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ----------------------------------------------------------------------- -->
+    <!-- SEKCJA 12 — NAJCZĘSTSZE PYTANIA -->
+    <!-- ----------------------------------------------------------------------- -->
+    <section class="story-stage-auto bg-charcoal" id="stage-faq" data-track-num="12" data-track-label="PYTANIA">
+      <div class="container-luxury">
+        <div class="section-badge-row">
+          <span class="section-tag">SEKCJA 12 &bull; NAJCZĘSTSZE PYTANIA</span>
+        </div>
+
+        <div class="faq-header-center text-center">
+          <h2 class="serif-monumental-heading">
+            Być może zastanawiasz się…
+          </h2>
+          <div class="gold-accent-line mx-auto"></div>
+          <p class="faq-sub">Wszystko, co warto wiedzieć przed podjęciem decyzji o sesji artystycznej.</p>
+        </div>
+
+        <div class="faq-accordion-container" id="faqAccordion">
+          
+          <!-- Q1 -->
+          <div class="faq-item-box black-framed-box active">
+            <button type="button" class="faq-question-btn" aria-expanded="true">
+              <span class="faq-q-title">Czy muszę mieć doświadczenie przed obiektywem?</span>
+              <span class="faq-icon-cross"></span>
+            </button>
+            <div class="faq-answer-pane" style="max-height: 400px;">
+              <p>Nie. Sesja została pomyślana również dla kobiet, które nigdy wcześniej nie uczestniczyły w profesjonalnym fotografowaniu. Fotograf prowadzi Cię przez cały proces i pomaga odnaleźć naturalne, korzystne ujęcia.</p>
+            </div>
+          </div>
+
+          <!-- Q2 -->
+          <div class="faq-item-box black-framed-box">
+            <button type="button" class="faq-question-btn" aria-expanded="false">
+              <span class="faq-q-title">Czy muszę zdecydować się na akt?</span>
+              <span class="faq-icon-cross"></span>
+            </button>
+            <div class="faq-answer-pane">
+              <p>Absolutnie nie. Zakres odsłonięcia ciała zależy wyłącznie od Twojej decyzji. Możesz wybrać klasyczny portret, fotografię modową, półakt lub akt artystyczny. W trakcie sesji możesz również zmienić zdanie.</p>
+            </div>
+          </div>
+
+          <!-- Q3 -->
+          <div class="faq-item-box black-framed-box">
+            <button type="button" class="faq-question-btn" aria-expanded="false">
+              <span class="faq-q-title">A jeśli nie podobam się sobie na zdjęciach?</span>
+              <span class="faq-icon-cross"></span>
+            </button>
+            <div class="faq-answer-pane">
+              <p>Właśnie dlatego tak ważne są rozmowa, artystyczna koncepcja oraz prowadzenie podczas sesji. Nie musisz znać własnych najlepszych póz. Zależy nam na stworzeniu portretu, w którym rozpoznasz siebie, a nie na przekształceniu Cię w kogoś innego.</p>
+            </div>
+          </div>
+
+          <!-- Q4 -->
+          <div class="faq-item-box black-framed-box">
+            <button type="button" class="faq-question-btn" aria-expanded="false">
+              <span class="faq-q-title">Czy mogę mieć wpływ na styl zdjęć?</span>
+              <span class="faq-icon-cross"></span>
+            </button>
+            <div class="faq-answer-pane">
+              <p>Tak. Twoje oczekiwania, inspiracje i granice omawiamy podczas przygotowań do sesji. Artystyczna wizja powstaje we współpracy z Tobą.</p>
+            </div>
+          </div>
+
+          <!-- Q5 -->
+          <div class="faq-item-box black-framed-box">
+            <button type="button" class="faq-question-btn" aria-expanded="false">
+              <span class="faq-q-title">Czy fotografie zostaną opublikowane?</span>
+              <span class="faq-icon-cross"></span>
+            </button>
+            <div class="faq-answer-pane">
+              <p>Wykorzystanie Twojego wizerunku do publikacji lub portfolio wymaga odrębnej zgody. Możesz zachować swoje fotografie wyłącznie dla siebie.</p>
+            </div>
+          </div>
+
+          <!-- Q6 -->
+          <div class="faq-item-box black-framed-box">
+            <button type="button" class="faq-question-btn" aria-expanded="false">
+              <span class="faq-q-title">Czy mogę zabrać ze sobą bliską osobę?</span>
+              <span class="faq-icon-cross"></span>
+            </button>
+            <div class="faq-answer-pane">
+              <p>Możliwość obecności osoby towarzyszącej i jej rola podczas sesji są ustalane indywidualnie, z uwzględnieniem Twojego komfortu.</p>
+            </div>
+          </div>
+
+          <!-- Q7 -->
+          <div class="faq-item-box black-framed-box">
+            <button type="button" class="faq-question-btn" aria-expanded="false">
+              <span class="faq-q-title">Co właściwie otrzymam na zakończenie?</span>
+              <span class="faq-icon-cross"></span>
+            </button>
+            <div class="faq-answer-pane">
+              <p>Efektem jest nie tylko doświadczenie profesjonalnej sesji artystycznej, lecz także fizyczne dzieło — starannie opracowany portret w indywidualnie dobranej czarnej oprawie. Szczegóły formatu, liczby prac i wykończenia ustalamy w ramach wybranego projektu.</p>
+            </div>
+          </div>
+
+          <!-- Q8 -->
+          <div class="faq-item-box black-framed-box">
+            <button type="button" class="faq-question-btn" aria-expanded="false">
+              <span class="faq-q-title">Jaka jest cena?</span>
+              <span class="faq-icon-cross"></span>
+            </button>
+            <div class="faq-answer-pane">
+              <p>Atelier Dubiński realizuje indywidualne projekty artystyczne z segmentu premium. Każdy z nich uwzględnia koncepcję, przygotowania, realizację i formę finalnego dzieła. Szczegółową ofertę przedstawiamy podczas osobistej konsultacji.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ----------------------------------------------------------------------- -->
+    <!-- SEKCJA 13 — FINAŁ (POETYCKIE PODSUMOWANIE & FORMULARZ KONTAKTOWY) -->
+    <!-- ----------------------------------------------------------------------- -->
+    <section class="story-stage-auto" id="stage-final" data-track-num="13" data-track-label="FINAŁ">
+      <div class="container-luxury final-master-deck">
+        
+        <div class="section-badge-row">
+          <span class="section-tag">SEKCJA 13 &bull; FINAŁ</span>
+        </div>
+
+        <!-- Poetyckie podsumowanie -->
+        <div class="final-poem-card black-framed-box text-center">
+          <h2 class="serif-monumental-heading">
+            Pewnego dnia spojrzysz na ten portret.
+          </h2>
+          <div class="gold-accent-line mx-auto"></div>
+
+          <div class="final-poem-verses">
+            <p>Być może zobaczysz kobietę, którą byłaś wiele lat wcześniej.</p>
+            <p>Przypomnisz sobie, co wtedy czułaś.</p>
+            <p>O czym marzyłaś.</p>
+            <p>Jak patrzyłaś na świat.</p>
+            <p class="verse-pause">I może pomyślisz, że dobrze było zatrzymać tamtą chwilę.</p>
+            <p>Nie dlatego, że byłaś wtedy idealna.</p>
+            <p class="verse-truth text-gold"><strong>Ale dlatego, że byłaś sobą.</strong></p>
+          </div>
+
+          <div class="final-callout-gold-box">
+            <p class="callout-lead">Nie czekaj na moment, w którym staniesz się kimś innym.</p>
+            <h3 class="callout-big">Twoja historia już dziś zasługuje na sztukę.</h3>
+          </div>
+
+          <div class="atelier-signature-brand">
+            <span class="sign-tagline">Atelier Dubiński — Your story. Your art. Your legacy.</span>
+          </div>
+        </div>
+
+        <!-- Formularz Pierwsza Rozmowa -->
+        <div class="contact-section-block">
+          <div class="contact-deck-grid">
+            
+            <div class="contact-form-col">
+              <span class="section-tag">KONSULTACJA WSTĘPNA</span>
+              <h2 class="contact-main-heading">Porozmawiajmy o Twoim portrecie.</h2>
+              <p class="contact-sub-heading">Napisz parę słów o sobie. Odpowiem osobiście w ciągu 48 godzin.</p>
+
+              <form class="contact-actual-form" id="atelierContactForm">
+                <div class="form-dual-fields">
+                  <div class="input-wrap">
+                    <label for="fName">Imię i Nazwisko</label>
+                    <input type="text" id="fName" name="name" required placeholder="Twoje imię">
+                  </div>
+                  <div class="input-wrap">
+                    <label for="fEmail">Adres E-mail</label>
+                    <input type="email" id="fEmail" name="email" required placeholder="twoj@email.com">
+                  </div>
+                </div>
+
+                <div class="input-wrap">
+                  <label for="fPhone">Telefon kontaktowy (opcjonalnie)</label>
+                  <input type="tel" id="fPhone" name="phone" placeholder="+48 000 000 000">
+                </div>
+
+                <div class="input-wrap">
+                  <label for="fMessage">Co chciałabyś, żeby ta sesja Ci przyniosła?</label>
+                  <textarea id="fMessage" name="message" rows="4" placeholder="Napisz kilka słów o sobie, swoich marzeniach, obawach lub pytaniach..."></textarea>
+                </div>
+
+                <div class="form-submit-row">
+                  <button type="submit" class="btn-primary-atelier btn-send-form">
+                    POROZMAWIAJMY O TWOIM PORTRECIE →
+                  </button>
+                  <span class="privacy-note">Twoje dane są w 100% chronione i nigdy nie są udostępniane publicznie.</span>
+                </div>
+              </form>
+
+              <div class="form-success-state" id="formSuccessState" style="display: none;">
+                <span class="success-star-symbol">✦</span>
+                <h3>Dziękuję. Odezwę się w ciągu 48 godzin.</h3>
+                <p>Twoja wiadomość trafiła bezpośrednio do Radosława Dubińskiego.</p>
+              </div>
+            </div>
+
+            <div class="contact-info-col">
+              <div class="atelier-coord-card black-framed-box">
+                <div class="coord-header">
+                  <span class="coord-ad">AD</span>
+                  <div>
+                    <strong>Atelier Dubiński</strong>
+                    <span>Dwa rzemiosła: światło i oprawa</span>
+                  </div>
+                </div>
+
+                <div class="coord-rows">
+                  <div class="coord-row">
+                    <span class="coord-lbl">BEZPOŚREDNI E-MAIL</span>
+                    <a href="mailto:radek@atelierdubinski.com" class="coord-val">radek@atelierdubinski.com</a>
+                  </div>
+                  <div class="coord-row">
+                    <span class="coord-lbl">INSTAGRAM ARTYSTYCZNY</span>
+                    <a href="https://instagram.com/atelierdubinski" target="_blank" rel="noopener" class="coord-val">@atelierdubinski</a>
+                  </div>
+                  <div class="coord-row">
+                    <span class="coord-lbl">MANUFAKTURA DREWNA</span>
+                    <a href="https://dubinski.com.pl" target="_blank" rel="noopener" class="coord-val">dubinski.com.pl →</a>
+                  </div>
+                </div>
+
+                <div class="coord-availability">
+                  <p>
+                    <strong>Indywidualne projekty z segmentu premium.</strong><br>
+                    Sesje rezerwowane z wyprzedzeniem 6–10 tygodni.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container-luxury footer-inner">
+      <div class="footer-left">
+        <span class="f-ad">AD</span>
+        <p>&copy; 2026 Atelier Dubiński. Wszelkie prawa zastrzeżone.</p>
+      </div>
+      <div class="footer-center">
+        <span>The art of being you.</span>
+      </div>
+      <div class="footer-right">
+        <a href="https://dubinski.com.pl" target="_blank" rel="noopener">dubinski.com.pl</a>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/scripts/main.js"></script>
+</body>
+</html>
