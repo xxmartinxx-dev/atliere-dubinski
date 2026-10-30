@@ -21,8 +21,9 @@
   --color-border-subtle: rgba(247, 244, 237, 0.12);
   --color-border-gold: rgba(227, 178, 90, 0.35);
 
-  --font-serif: 'Cormorant Garamond', 'Didot', Georgia, serif;
-  --font-sans: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  /* Typography: Cormorant Garamond for Headings, Jost for Body */
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Jost', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
   --transition-fast: 0.22s ease;
   --transition-med: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -40,7 +41,7 @@
 }
 
 html {
-  font-size: 16px;
+  font-size: 18px;
   background-color: var(--color-bg-darkest);
   color: var(--color-ecru-paper);
   font-family: var(--font-sans);
@@ -52,17 +53,80 @@ html {
 body {
   background-color: var(--color-bg-darkest);
   color: var(--color-ecru-paper);
-  line-height: 1.65;
+  line-height: 1.76;
   position: relative;
   overflow-x: hidden;
 }
 
-img {
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  font-weight: 300;
+}
+
+.serif-monumental-heading {
+  font-family: var(--font-serif);
+  font-size: clamp(1.9rem, 3.2vw, 2.75rem);
+  font-weight: 300;
+  letter-spacing: 0.03em;
+  line-height: 1.22;
+  color: var(--color-ecru-paper);
+}
+
+.serif-section-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.75rem, 2.8vw, 2.45rem);
+  font-weight: 300;
+  letter-spacing: 0.03em;
+  line-height: 1.25;
+  color: var(--color-ecru-paper);
+}
+
+p {
+  font-size: 1.12rem;
+  line-height: 1.8;
+  color: var(--color-ecru-dim);
+}
+
+/* FINE ART B&W DEFAULT WITH SILKY COLOR REVEAL ON HOVER (WARIANT A) */
+img,
+.hero-canvas-img,
+.print-matte-img,
+.exp-visual-img,
+.work-show-card img,
+.editorial-photo-wrap img,
+.side-card-media img,
+.akt-choice-media img,
+.material-bg-image,
+.filozofia-visual-card img,
+.obietnica-photo-banner img,
+.dlakogo-visual-photo img,
+.final-poem-media img {
   max-width: 100%;
   height: auto;
   display: block;
   user-select: none;
-  filter: grayscale(100%) contrast(1.08);
+  filter: grayscale(100%) contrast(1.08) brightness(0.95);
+  transition: filter 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: filter, transform;
+}
+
+/* Hover smoothly brings out rich authentic photography color */
+img:hover,
+.work-show-card:hover img,
+.editorial-photo-card:hover img,
+.editorial-photo-wrap:hover img,
+.side-card-media:hover img,
+.craft-side-card:hover img,
+.exp-media-wrap:hover img,
+.akt-option-card:hover img,
+.at-frame:hover img,
+.hero-canvas-frame:hover .hero-canvas-img,
+.filozofia-visual-card:hover img,
+.obietnica-photo-banner:hover img,
+.dlakogo-visual-photo:hover img,
+.final-poem-media:hover img,
+.black-framed-box:hover img {
+  filter: grayscale(0%) contrast(1.02) brightness(1.0);
 }
 
 a {
@@ -100,6 +164,11 @@ button {
 
 .w-full {
   width: 100%;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .gold-accent-line {
@@ -270,53 +339,39 @@ button {
   gap: 16px;
 }
 
-.btn-sound {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 12px;
-  border: 1px solid var(--color-border-subtle);
-  border-radius: 20px;
-  font-size: 0.68rem;
-  letter-spacing: 0.2em;
-  color: var(--color-stone-muted);
-}
 
-.btn-sound:hover, .btn-sound.playing {
-  border-color: var(--color-amber-gold);
-  color: var(--color-ecru-paper);
-}
-
-.sound-wave {
-  display: flex;
-  align-items: flex-end;
-  gap: 2px;
-  height: 12px;
-}
-
-.sound-wave i {
-  width: 2px;
-  height: 4px;
-  background-color: var(--color-stone-muted);
-}
-
-.btn-sound.playing .sound-wave i {
-  background-color: var(--color-amber-gold);
-}
 
 .btn-inquire {
   font-size: 0.72rem;
+  font-weight: 500;
   letter-spacing: 0.2em;
-  color: var(--color-amber-gold);
-  border: 1px solid var(--color-amber-dim);
-  padding: 8px 16px;
+  color: #070706;
+  background-color: var(--color-amber-gold);
+  border: 1px solid var(--color-amber-gold);
+  padding: 8px 18px;
   text-transform: uppercase;
-  transition: all var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 4px 16px rgba(227, 178, 90, 0.22);
+  transition: all var(--transition-med);
 }
 
 .btn-inquire:hover {
-  background-color: var(--color-amber-gold);
-  color: var(--color-bg-darkest);
+  background-color: var(--color-amber-light);
+  border-color: var(--color-amber-light);
+  color: #000000;
+  box-shadow: 0 6px 22px rgba(227, 178, 90, 0.4);
+  transform: translateY(-1px);
+}
+
+.btn-inquire .arrow {
+  transition: transform var(--transition-fast);
+  display: inline-block;
+}
+
+.btn-inquire:hover .arrow {
+  transform: translateX(3px);
 }
 
 .mobile-toggle {
@@ -488,33 +543,18 @@ button {
   position: relative;
   z-index: 10;
   text-align: center;
-  max-width: 900px;
+  max-width: 960px;
   width: 100%;
-  min-height: 280px;
   display: flex;
   align-items: center;
   justify-content: center;
-  pointer-events: none;
+  pointer-events: auto;
 }
 
-.narrative-step {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transform: translateY(20px);
-  pointer-events: none;
-  transition: none;
-}
-
-.narrative-step.active,
-#heroStep1 {
-  opacity: 1;
-  transform: translateY(0);
+.hero-editorial-box {
+  max-width: 880px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .narrative-kicker {
@@ -527,28 +567,72 @@ button {
   font-weight: 600;
 }
 
-.monumental-serif-word {
+.hero-editorial-title {
   font-family: var(--font-serif);
-  font-size: clamp(3.8rem, 10vw, 8.5rem);
+  font-size: clamp(1.85rem, 3.8vw, 3.1rem);
   font-weight: 300;
-  letter-spacing: 0.15em;
-  line-height: 1;
+  letter-spacing: 0.04em;
+  line-height: 1.18;
   color: var(--color-ecru-paper);
-  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.9);
-  margin-bottom: 24px;
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.95);
+  margin-bottom: 20px;
 }
 
-.narrative-caption {
-  font-size: clamp(1rem, 1.6vw, 1.25rem);
-  color: var(--color-ecru-dim);
-  max-width: 640px;
-  margin: 0 auto;
-  line-height: 1.7;
-}
-
-.narrative-caption em {
+.hero-editorial-title .text-gold {
   color: var(--color-amber-gold);
-  font-style: normal;
+  font-style: italic;
+}
+
+.hero-editorial-body {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 780px;
+  margin: 0 auto 30px;
+}
+
+.hero-lead-text {
+  font-family: var(--font-serif);
+  font-size: clamp(1.25rem, 1.8vw, 1.6rem);
+  font-style: italic;
+  color: var(--color-ecru-paper);
+  line-height: 1.5;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.95);
+}
+
+.hero-desc-text {
+  font-size: clamp(1.1rem, 1.3vw, 1.25rem);
+  color: var(--color-ecru-dim);
+  line-height: 1.8;
+  text-shadow: 0 2px 15px rgba(0, 0, 0, 0.9);
+}
+
+.hero-triplet-text {
+  font-size: clamp(1.08rem, 1.25vw, 1.2rem);
+  color: var(--color-ecru-paper);
+  text-shadow: 0 2px 15px rgba(0, 0, 0, 0.9);
+}
+
+.hero-accent-text {
+  font-family: var(--font-serif);
+  font-size: clamp(1.35rem, 1.9vw, 1.75rem);
+  font-style: italic;
+  color: var(--color-amber-gold);
+  letter-spacing: 0.05em;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.95);
+  margin-top: 6px;
+}
+
+.hero-cta-action {
+  margin-top: 10px;
+  pointer-events: auto;
+}
+
+.btn-gold-luxury {
+  box-shadow: 0 10px 30px rgba(227, 178, 90, 0.25);
+}
+.btn-gold-luxury:hover {
+  box-shadow: 0 14px 40px rgba(227, 178, 90, 0.45);
 }
 
 .scroll-prompt-indicator {
@@ -1813,6 +1897,1185 @@ button {
   margin-top: 16px;
 }
 
+/* ==========================================================================
+   THE ART OF BEING YOU — 13 SECTIONS STYLING EXTENSION
+   ========================================================================== */
+
+/* TYPOGRAPHY EXTENSIONS: WYWAŻONE NAGŁÓWKI + POWIĘKSZONY TEKST */
+.serif-monumental-heading {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 3.2vw, 2.75rem);
+  font-weight: 300;
+  letter-spacing: 0.06em;
+  line-height: 1.18;
+  color: var(--color-ecru-paper);
+}
+
+.serif-section-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.65rem, 2.8vw, 2.35rem);
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  line-height: 1.22;
+  color: var(--color-ecru-paper);
+}
+
+.section-badge-row {
+  margin-bottom: 24px;
+}
+
+/* BLACK FRAMED LUXURY BOXES */
+.black-framed-box {
+  background-color: var(--color-bg-card);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85);
+  position: relative;
+  transition: border-color var(--transition-med), transform var(--transition-med), box-shadow var(--transition-med);
+}
+
+.black-framed-box:hover {
+  border-color: rgba(227, 178, 90, 0.4);
+}
+
+/* EDITORIAL PHOTO CARDS & FRAMES */
+.editorial-photo-card {
+  position: relative;
+  overflow: hidden;
+  background-color: #0c0b0a;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.85);
+  transition: border-color var(--transition-med), transform var(--transition-med);
+}
+
+.editorial-photo-card:hover {
+  border-color: rgba(227, 178, 90, 0.45);
+}
+
+.editorial-photo-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 340px;
+  overflow: hidden;
+}
+
+.editorial-photo-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: filter 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.editorial-photo-card:hover img {
+  transform: scale(1.025);
+}
+
+.editorial-photo-badge {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  background: rgba(7, 7, 6, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 5px 12px;
+  font-size: 0.65rem;
+  letter-spacing: 0.22em;
+  color: var(--color-amber-gold);
+  text-transform: uppercase;
+  z-index: 2;
+}
+
+/* TRIPTYCH SPLIT FOR MANIFEST (TEXT - PHOTO - TEXT) */
+.manifest-grid-triptych {
+  display: grid;
+  grid-template-columns: 1fr 0.88fr 1fr;
+  gap: 32px;
+  align-items: stretch;
+}
+
+.manifest-roles-card {
+  padding: 40px;
+}
+
+.manifest-lead {
+  font-size: 1.25rem;
+  color: var(--color-ecru-paper);
+  margin-bottom: 20px;
+  line-height: 1.7;
+}
+
+.roles-words-stream {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.roles-words-stream span {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  color: var(--color-amber-gold);
+  border-bottom: 1px solid var(--color-amber-dim);
+  padding-bottom: 2px;
+}
+
+.roles-summary {
+  font-size: 1.15rem;
+  color: var(--color-stone-muted);
+  line-height: 1.75;
+}
+
+.manifest-you-card {
+  padding: 44px 38px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-kicker {
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  color: var(--color-amber-gold);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.manifest-intro-p {
+  font-size: 1.15rem;
+  color: var(--color-ecru-dim);
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+
+.the-you-monument {
+  text-align: center;
+  margin: 8px 0 20px;
+}
+
+.the-you-word {
+  font-family: var(--font-serif);
+  font-size: clamp(4.5rem, 8vw, 7.5rem);
+  font-weight: 300;
+  line-height: 1;
+  color: var(--color-amber-gold);
+  text-shadow: 0 4px 30px rgba(227, 178, 90, 0.2);
+}
+
+.manifest-prose-stream {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 1.15rem;
+  color: var(--color-ecru-dim);
+  margin-bottom: 24px;
+  line-height: 1.75;
+}
+
+.accent-text-gold {
+  color: var(--color-amber-gold);
+  font-size: 1.25rem;
+}
+
+.manifest-question-box blockquote {
+  font-family: var(--font-serif);
+  font-size: 1.45rem;
+  font-style: italic;
+  color: var(--color-ecru-paper);
+  border-left: 2px solid var(--color-amber-gold);
+  padding-left: 20px;
+  line-height: 1.6;
+}
+
+/* AKT CHOICE MEDIA */
+.akt-choice-media {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.akt-choice-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: filter 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.akt-option-card:hover .akt-choice-media img {
+  transform: scale(1.03);
+}
+
+/* FILOZOFIA VISUAL BANNER */
+.filozofia-visual-showcase {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  margin: 36px 0;
+}
+
+.filozofia-visual-card {
+  height: 100%;
+  min-height: 340px;
+}
+
+.filozofia-visual-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* OBIETNICA SPLIT WITH PHOTO */
+.obietnica-visual-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 50px;
+  align-items: stretch;
+}
+
+.obietnica-photo-banner {
+  margin-top: 36px;
+  height: 260px;
+  overflow: hidden;
+  position: relative;
+}
+
+.obietnica-photo-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* FINAL POEM SPLIT */
+.final-poem-split {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 50px;
+  align-items: center;
+  text-align: left;
+}
+
+.final-poem-split .final-poem-verses {
+  text-align: left;
+  margin: 0 0 30px;
+}
+
+.final-poem-media {
+  position: relative;
+  height: 520px;
+  overflow: hidden;
+  border: 1px solid rgba(227, 178, 90, 0.35);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+}
+
+.final-poem-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 25%;
+}
+
+.final-poem-caption {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  background: rgba(7, 7, 6, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 6px 14px;
+  font-size: 0.65rem;
+  letter-spacing: 0.22em;
+  color: var(--color-amber-gold);
+  text-transform: uppercase;
+  z-index: 2;
+}
+
+/* DLA KOGO SPLIT WITH PHOTO */
+.dlakogo-split-wrap {
+  display: grid;
+  grid-template-columns: 1.25fr 0.85fr;
+  gap: 40px;
+  align-items: stretch;
+  margin-bottom: 30px;
+}
+
+.dlakogo-visual-photo {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--color-border-subtle);
+  background: var(--color-bg-card);
+  display: flex;
+  flex-direction: column;
+}
+
+.dlakogo-photo-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 480px;
+  overflow: hidden;
+}
+
+.dlakogo-photo-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.dlakogo-photo-caption {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  background: rgba(7, 7, 6, 0.9);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(227, 178, 90, 0.25);
+  padding: 16px 20px;
+}
+
+.dlakogo-caption-tag {
+  display: block;
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  color: var(--color-amber-gold);
+  margin-bottom: 4px;
+}
+
+.dlakogo-caption-quote {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--color-ecru-paper);
+  line-height: 1.4;
+}
+
+/* --------------------------------------------------------------------------
+   SEKCJA 3 — FILOZOFIA
+   -------------------------------------------------------------------------- */
+.filozofia-layout-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.filozofia-tri-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.filo-card {
+  padding: 38px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.filo-card.active-filo {
+  border-color: var(--color-border-gold);
+  background-color: var(--color-bg-elevated);
+}
+
+.filo-num {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  color: var(--color-stone-muted);
+  margin-bottom: 14px;
+}
+
+.filo-card h3 {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  color: var(--color-ecru-paper);
+  margin-bottom: 14px;
+}
+
+.filo-card p {
+  font-size: 0.98rem;
+  color: var(--color-ecru-dim);
+  line-height: 1.7;
+}
+
+.filo-subdetail {
+  margin-top: 14px;
+  font-size: 0.92rem !important;
+  color: var(--color-stone-muted) !important;
+}
+
+.filo-quote-gold {
+  margin-top: 14px;
+  color: var(--color-amber-gold) !important;
+  font-style: italic;
+}
+
+.filozofia-bottom-banner {
+  padding: 36px 30px;
+  border-color: var(--color-border-gold);
+}
+
+.banner-oppose {
+  font-size: 1.1rem;
+  color: var(--color-stone-muted);
+  margin-bottom: 6px;
+}
+
+.banner-affirm {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 300;
+  letter-spacing: 0.05em;
+}
+
+/* --------------------------------------------------------------------------
+   SEKCJA 4 — NAJWAŻNIEJSZA OBIETNICA
+   -------------------------------------------------------------------------- */
+.obietnica-screen-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.fears-quote-deck {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-top: 36px;
+}
+
+.fear-item-card {
+  background-color: var(--color-bg-card);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 24px;
+  position: relative;
+  transition: border-color var(--transition-med);
+}
+
+.fear-item-card:hover {
+  border-color: var(--color-border-gold);
+}
+
+.fear-mark {
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  color: var(--color-amber-dim);
+  line-height: 1;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.fear-item-card p {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--color-ecru-paper);
+}
+
+.obietnica-manifest-card {
+  padding: 44px 38px;
+}
+
+.obietnica-intro {
+  font-size: 1.05rem;
+  color: var(--color-stone-muted);
+  margin-bottom: 20px;
+}
+
+.obietnica-body-stream {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  font-size: 1.05rem;
+  color: var(--color-ecru-dim);
+  line-height: 1.7;
+  margin-bottom: 30px;
+}
+
+.obietnica-crescendo {
+  border-top: 1px solid var(--color-border-subtle);
+  padding-top: 24px;
+}
+
+.crescendo-pre {
+  font-size: 0.68rem;
+  letter-spacing: 0.25em;
+  color: var(--color-stone-muted);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.crescendo-text {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 3.8vw, 3.2rem);
+  font-weight: 300;
+  letter-spacing: 0.08em;
+}
+
+/* --------------------------------------------------------------------------
+   SEKCJA 5 — AKT ARTYSTYCZNY
+   -------------------------------------------------------------------------- */
+.akt-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.akt-sensory-lead {
+  font-family: var(--font-serif);
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  font-style: italic;
+  color: var(--color-ecru-dim);
+  max-width: 740px;
+  margin: 16px auto 0;
+}
+
+.akt-three-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.akt-option-card {
+  padding: 36px 28px;
+}
+
+.akt-option-card.active-akt {
+  border-color: var(--color-border-gold);
+  background-color: var(--color-bg-elevated);
+}
+
+.option-pill {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  color: var(--color-stone-muted);
+  margin-bottom: 12px;
+  display: block;
+}
+
+.akt-option-card h3 {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  color: var(--color-ecru-paper);
+  margin-bottom: 12px;
+}
+
+.akt-option-card p {
+  font-size: 0.95rem;
+  color: var(--color-ecru-dim);
+  line-height: 1.65;
+}
+
+.akt-boundaries-banner {
+  padding: 40px;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.boundaries-left {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  font-size: 1rem;
+  color: var(--color-ecru-dim);
+  line-height: 1.7;
+}
+
+.boundaries-gold-statement {
+  background-color: rgba(227, 178, 90, 0.06);
+  border: 1px solid var(--color-border-gold);
+  padding: 30px;
+  text-align: center;
+}
+
+.boundaries-gold-statement strong {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  color: var(--color-amber-gold);
+  line-height: 1.3;
+  margin-bottom: 10px;
+}
+
+.statement-sub {
+  font-size: 0.95rem;
+  color: var(--color-ecru-paper);
+}
+
+/* --------------------------------------------------------------------------
+   SEKCJA 6 — DOŚWIADCZENIE (EUROPEJSKIE DESTYNACJE & ATELIER)
+   -------------------------------------------------------------------------- */
+.experience-master-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.exp-prose-p {
+  font-size: 1.1rem;
+  color: var(--color-ecru-dim);
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+
+.cities-triptych-pills {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 32px 0 36px;
+}
+
+.city-pill {
+  background-color: var(--color-bg-card);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 16px;
+  text-align: center;
+}
+
+.city-pill strong {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  color: var(--color-amber-gold);
+  letter-spacing: 0.1em;
+}
+
+.city-pill span {
+  font-size: 0.72rem;
+  color: var(--color-stone-muted);
+}
+
+.exp-visual-card {
+  overflow: hidden;
+}
+
+.exp-media-wrap {
+  position: relative;
+  height: 280px;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.exp-visual-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.exp-media-caption {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  background-color: rgba(7, 7, 6, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 4px 10px;
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  color: var(--color-amber-gold);
+}
+
+.exp-details-list {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.exp-detail-point strong {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  color: var(--color-ecru-paper);
+  margin-bottom: 4px;
+}
+
+.exp-detail-point p {
+  font-size: 0.92rem;
+  color: var(--color-ecru-dim);
+  line-height: 1.6;
+}
+
+.point-gold {
+  border-top: 1px solid var(--color-border-subtle);
+  padding-top: 18px;
+}
+
+.point-gold small {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.95rem;
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: var(--color-amber-gold);
+}
+
+/* --------------------------------------------------------------------------
+   SEKCJA 7 — PROCES (6 KROKÓW)
+   -------------------------------------------------------------------------- */
+.process-intro-sub {
+  font-size: 1.05rem;
+  color: var(--color-stone-muted);
+  max-width: 680px;
+  margin: 0 auto 50px;
+}
+
+.process-six-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+}
+
+.step-card-box {
+  padding: 32px 26px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 290px;
+}
+
+.step-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 1px solid var(--color-border-subtle);
+  padding-bottom: 12px;
+  margin-bottom: 18px;
+}
+
+.step-idx {
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  color: var(--color-amber-gold);
+  line-height: 1;
+}
+
+.step-category {
+  font-size: 0.65rem;
+  letter-spacing: 0.22em;
+  color: var(--color-stone-muted);
+}
+
+.step-title {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  color: var(--color-ecru-paper);
+  margin-bottom: 12px;
+  line-height: 1.25;
+}
+
+.step-description {
+  font-size: 0.92rem;
+  color: var(--color-ecru-dim);
+  line-height: 1.65;
+  margin-bottom: 14px;
+}
+
+.step-note {
+  font-size: 0.85rem;
+  color: var(--color-stone-muted);
+  font-style: italic;
+  line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   SEKCJA 8 — PRYWATNOŚĆ
+   -------------------------------------------------------------------------- */
+.privacy-master-card {
+  padding: 60px 50px;
+}
+
+.privacy-seal-icon {
+  text-align: center;
+  font-family: var(--font-serif);
+  font-size: 0.85rem;
+  letter-spacing: 0.3em;
+  color: var(--color-amber-gold);
+  margin-bottom: 24px;
+}
+
+.privacy-dual-column {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  margin-top: 40px;
+  align-items: center;
+}
+
+.privacy-text-block p {
+  font-size: 1.05rem;
+  color: var(--color-ecru-dim);
+  line-height: 1.75;
+  margin-bottom: 14px;
+}
+
+.privacy-equal-choice {
+  color: var(--color-ecru-paper) !important;
+  font-size: 1.15rem !important;
+}
+
+.privacy-foundation-badge {
+  background-color: rgba(227, 178, 90, 0.05);
+  border: 1px solid var(--color-border-gold);
+  padding: 28px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.privacy-foundation-badge span {
+  display: block;
+  font-size: 0.68rem;
+  letter-spacing: 0.25em;
+  color: var(--color-stone-muted);
+  margin-bottom: 6px;
+}
+
+.privacy-foundation-badge strong {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  line-height: 1.1;
+}
+
+/* --------------------------------------------------------------------------
+   SEKCJA 9 — DZIEŁO (PROSE & COMPLEMENT)
+   -------------------------------------------------------------------------- */
+.dzielo-intro-prose {
+  max-width: 860px;
+  margin: 0 auto 40px;
+  text-align: center;
+}
+
+.dzielo-intro-lead {
+  font-size: 1.15rem;
+  color: var(--color-ecru-paper);
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+
+.dzielo-intro-sub {
+  font-size: 1.02rem;
+  color: var(--color-stone-muted);
+  line-height: 1.7;
+}
+
+/* --------------------------------------------------------------------------
+   SEKCJA 10 — WARTOŚĆ
+   -------------------------------------------------------------------------- */
+.wartosc-layout-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.wartosc-subtitle {
+  font-size: 1.1rem;
+  color: var(--color-stone-muted);
+  max-width: 720px;
+  margin: 16px auto 0;
+}
+
+.wartosc-three-examples {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.wartosc-card {
+  padding: 38px 28px;
+  text-align: center;
+}
+
+.v-symbol {
+  font-size: 1.8rem;
+  color: var(--color-stone-muted);
+  display: block;
+  margin-bottom: 12px;
+}
+
+.wartosc-card h3 {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  color: var(--color-ecru-paper);
+  margin-bottom: 12px;
+}
+
+.wartosc-card p {
+  font-size: 0.95rem;
+  color: var(--color-ecru-dim);
+  line-height: 1.6;
+}
+
+.wartosc-summary-deck {
+  padding: 46px 40px;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.v-sum-col h4 {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  color: var(--color-ecru-paper);
+  margin-bottom: 12px;
+}
+
+.v-sum-col p {
+  font-size: 1.05rem;
+  color: var(--color-ecru-dim);
+  line-height: 1.7;
+  margin-bottom: 10px;
+}
+
+.col-highlight {
+  background-color: rgba(227, 178, 90, 0.05);
+  border: 1px solid var(--color-border-gold);
+  padding: 30px;
+}
+
+.sum-kicker {
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  color: var(--color-stone-muted);
+  display: block;
+  margin-bottom: 10px;
+}
+
+.v-sum-quote {
+  font-family: var(--font-serif);
+  font-size: 1.45rem;
+  line-height: 1.5;
+  font-style: italic;
+}
+
+/* --------------------------------------------------------------------------
+   SEKCJA 11 — DLA KOGO
+   -------------------------------------------------------------------------- */
+.dlakogo-header-center {
+  margin-bottom: 50px;
+}
+
+.dlakogo-personas-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+  margin-bottom: 40px;
+}
+
+.persona-card {
+  padding: 32px 26px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.persona-card.active-persona {
+  border-color: var(--color-border-gold);
+  background-color: var(--color-bg-elevated);
+}
+
+.persona-bullet {
+  font-size: 1.1rem;
+  color: var(--color-amber-gold);
+  line-height: 1.4;
+}
+
+.persona-card p {
+  font-size: 1.02rem;
+  color: var(--color-ecru-dim);
+  line-height: 1.65;
+}
+
+.persona-card strong {
+  color: var(--color-ecru-paper);
+}
+
+.dlakogo-final-punch {
+  padding: 36px 30px;
+  border-color: var(--color-border-gold);
+}
+
+.punch-kicker {
+  font-size: 0.68rem;
+  letter-spacing: 0.28em;
+  color: var(--color-stone-muted);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.punch-text {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 300;
+  letter-spacing: 0.05em;
+}
+
+/* --------------------------------------------------------------------------
+   SEKCJA 12 — NAJCZĘSTSZE PYTANIA (FAQ ACCORDION)
+   -------------------------------------------------------------------------- */
+.faq-header-center {
+  margin-bottom: 46px;
+}
+
+.faq-sub {
+  font-size: 1.05rem;
+  color: var(--color-stone-muted);
+  margin-top: 14px;
+}
+
+.faq-accordion-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.faq-item-box {
+  border-color: rgba(255, 255, 255, 0.08);
+  transition: all var(--transition-med);
+}
+
+.faq-item-box.active {
+  border-color: var(--color-border-gold);
+}
+
+.faq-question-btn {
+  width: 100%;
+  padding: 24px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  text-align: left;
+}
+
+.faq-q-title {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  color: var(--color-ecru-paper);
+  letter-spacing: 0.04em;
+  transition: color var(--transition-fast);
+}
+
+.faq-item-box.active .faq-q-title,
+.faq-question-btn:hover .faq-q-title {
+  color: var(--color-amber-gold);
+}
+
+.faq-icon-cross {
+  width: 16px;
+  height: 16px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.faq-icon-cross::before,
+.faq-icon-cross::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 14px;
+  height: 2px;
+  background-color: var(--color-amber-gold);
+  transform: translate(-50%, -50%);
+  transition: transform var(--transition-med);
+}
+
+.faq-icon-cross::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.faq-item-box.active .faq-icon-cross::after {
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.faq-answer-pane {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), padding 0.4s ease;
+  padding: 0 28px;
+}
+
+.faq-item-box.active .faq-answer-pane {
+  padding: 0 28px 24px;
+}
+
+.faq-answer-pane p {
+  font-size: 0.98rem;
+  color: var(--color-ecru-dim);
+  line-height: 1.7;
+  border-top: 1px solid var(--color-border-subtle);
+  padding-top: 16px;
+}
+
+/* --------------------------------------------------------------------------
+   SEKCJA 13 — FINAŁ
+   -------------------------------------------------------------------------- */
+.final-poem-card {
+  padding: 60px 40px;
+  margin-bottom: 60px;
+}
+
+.final-poem-verses {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+  color: var(--color-ecru-dim);
+  line-height: 1.75;
+  max-width: 680px;
+  margin: 0 auto 36px;
+}
+
+.verse-pause {
+  margin-top: 12px;
+  color: var(--color-ecru-paper);
+}
+
+.verse-truth {
+  font-size: 1.35rem;
+}
+
+.final-callout-gold-box {
+  background-color: rgba(227, 178, 90, 0.06);
+  border: 1px solid var(--color-border-gold);
+  padding: 30px;
+  max-width: 760px;
+  margin: 0 auto 32px;
+}
+
+.callout-lead {
+  font-size: 1.1rem;
+  color: var(--color-ecru-paper);
+  margin-bottom: 8px;
+}
+
+.callout-big {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 300;
+  color: var(--color-amber-gold);
+  letter-spacing: 0.05em;
+}
+
+.atelier-signature-brand {
+  border-top: 1px solid var(--color-border-subtle);
+  padding-top: 20px;
+}
+
+.sign-tagline {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-style: italic;
+  letter-spacing: 0.12em;
+  color: var(--color-stone-muted);
+}
+
 /* RESPONSIVE */
 @media (max-width: 1024px) {
   .header-nav { display: none; }
@@ -1827,9 +3090,29 @@ button {
   .atelier-atmosphere-grid,
   .reviews-grid-3,
   .contact-deck-grid,
-  .lightbox-content {
+  .lightbox-content,
+  .manifest-grid-split,
+  .manifest-grid-triptych,
+  .filozofia-tri-grid,
+  .filozofia-visual-showcase,
+  .obietnica-screen-grid,
+  .obietnica-visual-grid,
+  .akt-three-pillars-grid,
+  .akt-boundaries-banner,
+  .experience-master-grid,
+  .process-six-steps-grid,
+  .privacy-dual-column,
+  .wartosc-three-examples,
+  .wartosc-summary-deck,
+  .dlakogo-personas-grid,
+  .dlakogo-split-wrap,
+  .final-poem-split {
     grid-template-columns: 1fr;
     gap: 30px;
+  }
+
+  .final-poem-media {
+    height: 380px;
   }
 
   .layer-annotation { display: none; }
@@ -1847,4 +3130,8 @@ button {
   .craft-heritage-pills-row { flex-direction: column; gap: 16px; }
   .form-dual-fields { grid-template-columns: 1fr; }
   .at-pills-row { grid-template-columns: 1fr; }
+  .fears-quote-deck,
+  .cities-triptych-pills {
+    grid-template-columns: 1fr;
+  }
 }

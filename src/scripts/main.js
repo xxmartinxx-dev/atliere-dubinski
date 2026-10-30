@@ -1,7 +1,6 @@
 import Lenis from 'lenis';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { soundscape } from './soundscape.js';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -14,8 +13,6 @@ const grainCanvas = document.getElementById('grainCanvas');
 const siteHeader = document.getElementById('siteHeader');
 const currentTrackNum = document.getElementById('currentTrackNum');
 const currentTrackLabel = document.getElementById('currentTrackLabel');
-const btnSound = document.getElementById('btnSound');
-const soundLabel = document.getElementById('soundLabel');
 const mobileMenuToggle = document.getElementById('mobileMenuToggle');
 const mobileDrawer = document.getElementById('mobileDrawer');
 const portTabBtns = document.querySelectorAll('.port-tab-btn');
@@ -39,6 +36,7 @@ window.addEventListener('DOMContentLoaded', () => {
   initNarrativeTracker();
   initPortfolioTabs();
   initGalleryLightbox();
+  initFaqAccordion();
   initContactForm();
   initEventListeners();
 });
@@ -124,7 +122,7 @@ function initCustomCursor() {
   }
   updateCursor();
 
-  const hoverables = document.querySelectorAll('a, button, input, textarea, .work-show-card, .process-deck-item, .craft-side-card');
+  const hoverables = document.querySelectorAll('a, button, input, textarea, .work-show-card, .process-deck-item, .craft-side-card, .black-framed-box, .fear-item-card, .faq-question-btn');
   hoverables.forEach((el) => {
     el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
     el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
@@ -151,32 +149,23 @@ function initScrollytellingTimelines() {
   const heroStage = document.getElementById('stage-hero');
   const heroImg = document.getElementById('heroPortraitImg');
   const heroGrain = document.getElementById('heroMacroGrain');
-  const step1 = document.getElementById('heroStep1');
-  const step2 = document.getElementById('heroStep2');
-  const step3 = document.getElementById('heroStep3');
+  const heroBox = document.getElementById('heroEditorialBox');
 
-  if (heroStage && heroImg && step1 && step2 && step3) {
+  if (heroStage && heroBox) {
     const heroTl = gsap.timeline({
       scrollTrigger: {
         trigger: heroStage,
         start: 'top top',
-        end: '+=180%',
+        end: '+=80%',
         pin: true,
         scrub: 0.8,
         anticipatePin: 1
       }
     });
 
-    // Step 1: ŚWIATŁO (starts visible) -> fades out
-    heroTl.to(step1, { opacity: 0, y: -25, duration: 0.8, ease: 'power1.inOut' }, 0.6)
-      // Step 2: PORTRET -> fades in and out
-      .fromTo(step2, { opacity: 0, y: 25 }, { opacity: 1, y: 0, duration: 0.8, ease: 'power1.inOut' }, 0.9)
-      .to(step2, { opacity: 0, y: -25, duration: 0.8, ease: 'power1.inOut' }, 2.0)
-      // Step 3: MATERIAŁ -> fades in
-      .fromTo(step3, { opacity: 0, y: 25 }, { opacity: 1, y: 0, duration: 0.8, ease: 'power1.inOut' }, 2.3)
-      // Hero image zoom + grain reveal
-      .to(heroImg, { scale: 1.65, ease: 'none', duration: 3.2 }, 0)
-      .to(heroGrain, { opacity: 0.65, ease: 'none', duration: 3.2 }, 0);
+    heroTl.to(heroBox, { opacity: 0, y: -35, duration: 0.9, ease: 'power1.inOut' }, 0.3);
+    if (heroImg) heroTl.to(heroImg, { scale: 1.25, ease: 'none', duration: 1.8 }, 0);
+    if (heroGrain) heroTl.to(heroGrain, { opacity: 0.45, ease: 'none', duration: 1.8 }, 0);
   }
 
   // 2. MATERIAL PINNED TIMELINE (PAPIER HAHNEMÜHLE)
@@ -389,6 +378,42 @@ function closeLightbox() {
   }
 }
 
+// FAQ Accordion Interactivity
+function initFaqAccordion() {
+  const faqItems = document.querySelectorAll('.faq-item-box');
+
+  faqItems.forEach((item) => {
+    const btn = item.querySelector('.faq-question-btn');
+    const answer = item.querySelector('.faq-answer-pane');
+    if (!btn || !answer) return;
+
+    btn.addEventListener('click', () => {
+      const isActive = item.classList.contains('active');
+
+      // Close other open accordions
+      faqItems.forEach((other) => {
+        if (other !== item && other.classList.contains('active')) {
+          other.classList.remove('active');
+          const otherBtn = other.querySelector('.faq-question-btn');
+          const otherAns = other.querySelector('.faq-answer-pane');
+          if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
+          if (otherAns) otherAns.style.maxHeight = '0px';
+        }
+      });
+
+      if (isActive) {
+        item.classList.remove('active');
+        btn.setAttribute('aria-expanded', 'false');
+        answer.style.maxHeight = '0px';
+      } else {
+        item.classList.add('active');
+        btn.setAttribute('aria-expanded', 'true');
+        answer.style.maxHeight = (answer.scrollHeight + 32) + 'px';
+      }
+    });
+  });
+}
+
 // Contact Form Handler
 function initContactForm() {
   if (!atelierContactForm) return;
@@ -404,17 +429,6 @@ function initContactForm() {
 
 // General Listeners
 function initEventListeners() {
-  // Soundscape Toggle
-  if (btnSound) {
-    btnSound.addEventListener('click', () => {
-      const isPlaying = soundscape.toggle();
-      btnSound.classList.toggle('playing', isPlaying);
-      if (soundLabel) {
-        soundLabel.textContent = isPlaying ? 'DŹWIĘK: WŁ.' : 'DŹWIĘK: WYŁ.';
-      }
-    });
-  }
-
   // Mobile Drawer Toggle
   if (mobileMenuToggle && mobileDrawer) {
     mobileMenuToggle.addEventListener('click', () => {
@@ -428,6 +442,20 @@ function initEventListeners() {
       });
     });
   }
+
+  // Smooth Anchor Scrolling with Lenis
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener('click', (e) => {
+      const targetId = anchor.getAttribute('href');
+      if (targetId && targetId !== '#') {
+        const targetEl = document.querySelector(targetId);
+        if (targetEl && lenisInstance) {
+          e.preventDefault();
+          lenisInstance.scrollTo(targetEl, { offset: 0, duration: 1.4 });
+        }
+      }
+    });
+  });
 
   // ESC Key
   window.addEventListener('keydown', (e) => {
